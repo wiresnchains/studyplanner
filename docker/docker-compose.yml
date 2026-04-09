@@ -1,0 +1,42 @@
+name: studyplanner
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: unless-stopped
+    expose:
+      - 3306
+    volumes:
+      - mysql_data:/var/
+  
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+  
+  tomcat:
+    image: tomcat:latest
+    container_name: tomcat
+    restart: unless-stopped
+    expose:
+      - 8080
+    volumes:
+      - webapps:/opt/tomcat/webapps
+      
+  build_studymasters:
+    build:
+      context: ../
+      dockerfile: ./docker/build_studymasters/Dockerfile
+    container_name: build_studymasters
+    volumes:
+      - webapps:/opt/tomcat/webapps
+
+volumes:
+  mysql_data:
+  webapps:
