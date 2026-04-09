@@ -2,9 +2,7 @@
 <tiles-definitions>
     <definition name="base" template="/WEB-INF/tiles/base.jsp" />
 
-    <definition name="sidebar" extends="base">
-        <put-attribute name="body" value="/WEB-INF/tiles/sidebar.jsp" />
-    </definition>
+    <definition name="sidebar" template="/WEB-INF/tiles/sidebar.jsp" />
 
     <definition name="termsAndConditions" extends="base">
         <put-attribute name="title" value="Terms and conditions" />
@@ -23,11 +21,11 @@
 
     <definition name="home" extends="sidebar">
         <put-attribute name="title" value="Home" />
-        <put-attribute name="content" value="/WEB-INF/views/home.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
     </definition>
 
     <definition name="mailbox" extends="sidebar">
         <put-attribute name="title" value="Mailbox" />
-        <put-attribute name="content" value="/WEB-INF/views/mailbox.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/mailbox.jsp" />
     </definition>
 </tiles-definitions>
