@@ -1,0 +1,75 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
+<main class="d-flex">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px">
+        <a href="<s:url value='/' />" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <span class="fs-4">Studyplanner</span>
+        </a>
+
+        <hr />
+
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="<s:url value='/' />" class="nav-link">
+                    Home
+                </a>
+            </li>
+        </ul>
+
+        <hr />
+
+        <s:if test="#session.currentAccountDTO != null">
+            <div class="dropdown">
+                <a
+                    href="#"
+                    class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    <s:property value="#session.currentAccountDTO.username" />
+
+                    <s:if test="#session.unreadMailboxMessageCount > 0">
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">New messages</span>
+                        </span>
+                    </s:if>
+                </a>
+                <ul class="dropdown-menu text-small shadow">
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center gap-2" href="<s:url value="/mailbox/" />">
+                            <s:if test="#session.unreadMailboxMessageCount > 0">
+                                <span class="badge text-bg-danger"><s:property value="#session.unreadMailboxMessageCount" /></span>
+                            </s:if>
+                            Mailbox
+                        </a>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="<s:url value='/auth/logout' />">Log-out</a></li>
+                </ul>
+            </div>
+        </s:if>
+        <s:else>
+            <div class="dropdown">
+                <a
+                    href="#"
+                    class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    Account
+                </a>
+                <ul class="dropdown-menu text-small shadow">
+                    <li><a class="dropdown-item" href="<s:url value='/login' />">Login</a></li>
+                    <li><a class="dropdown-item" href="<s:url value='/register' />">Register</a></li>
+                </ul>
+            </div>
+        </s:else>
+    </div>
+
+    <tiles:insertAttribute name="content" ignore="true" />
+
+    <tags:actionMessages />
+</main>

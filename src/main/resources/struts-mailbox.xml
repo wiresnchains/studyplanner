@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 6.0//EN" "https://struts.apache.org/dtds/struts-6.0.dtd">
+<struts>
+    <package name="mailbox" namespace="/mailbox" extends="base">
+        <default-interceptor-ref name="protectedStack" />
+        <default-action-ref name="index" />
+
+        <action name="index" class="me.dgrachov.studyplanner.action.mailbox.ShowAllMessagesAction">
+            <result name="success" type="tiles">mailbox</result>
+            <result name="error" type="tiles">mailbox</result>
+        </action>
+
+        <action name="read-message" class="me.dgrachov.studyplanner.action.mailbox.ReadMessageAction">
+            <result name="success" type="redirect">index</result>
+            <result name="error" type="tiles">mailbox</result>
+        </action>
+    </package>
+</struts>

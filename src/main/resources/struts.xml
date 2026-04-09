@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 6.0//EN" "https://struts.apache.org/dtds/struts-6.0.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.allowlist.packageNames" value="me.dgrachov.studyplanner.dto" />
+
+    <package name="base" abstract="true" extends="struts-default">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+
+        <interceptors>
+            <interceptor name="exceptionInterceptor"
+                class="me.dgrachov.studyplanner.interceptor.ExceptionInterceptor" />
+
+            <interceptor name="hibernateInterceptor"
+                class="me.dgrachov.studyplanner.interceptor.HibernateInterceptor" />
+
+            <interceptor name="accountSessionInterceptor"
+                class="me.dgrachov.studyplanner.interceptor.AccountSessionInterceptor" />
+
+            <interceptor name="requireLoginInterceptor"
+                class="me.dgrachov.studyplanner.interceptor.RequireLoginInterceptor" />
+
+            <interceptor name="mailboxInterceptor"
+                class="me.dgrachov.studyplanner.interceptor.MailboxInterceptor" />
+
+            <interceptor-stack name="baseStack">
+                <interceptor-ref name="exceptionInterceptor" />
+                <interceptor-ref name="hibernateInterceptor" />
+                <interceptor-ref name="accountSessionInterceptor" />
+                <interceptor-ref name="mailboxInterceptor" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+
+            <interceptor-stack name="protectedStack">
+                <interceptor-ref name="baseStack" />
+                <interceptor-ref name="requireLoginInterceptor" />
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="baseStack" />
+
+        <global-results>
+            <result name="login" type="tiles">login</result>
+        </global-results>
+    </package>
+
+    <package name="default" namespace="/" extends="base">
+        <default-action-ref name="index" />
+
+        <action name="index" class="me.dgrachov.studyplanner.action.BasePageAction">
+            <result name="success" type="tiles">home</result>
+            <result name="error" type="tiles">home</result>
+        </action>
+
+        <action name="terms-and-conditions" class="me.dgrachov.studyplanner.action.BasePageAction">
+            <result name="success" type="tiles">termsAndConditions</result>
+            <result name="error" type="tiles">home</result>
+        </action>
+
+        <action name="login" class="me.dgrachov.studyplanner.action.BasePageAction">
+            <result name="success" type="tiles">login</result>
+            <result name="error" type="tiles">home</result>
+        </action>
+
+        <action name="register" class="me.dgrachov.studyplanner.action.BasePageAction">
+            <result name="success" type="tiles">register</result>
+            <result name="error" type="tiles">home</result>
+        </action>
+    </package>
+
+    <include file="struts-auth.xml" />
+    <include file="struts-mailbox.xml" />
+</struts>

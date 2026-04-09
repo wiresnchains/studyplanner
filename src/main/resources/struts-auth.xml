@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 6.0//EN" "https://struts.apache.org/dtds/struts-6.0.dtd">
+<struts>
+    <package name="auth" namespace="/auth" extends="base">
+        <action name="login" class="me.dgrachov.studyplanner.action.auth.LoginAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">index</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="error" type="tiles">login</result>
+        </action>
+
+        <action name="register" class="me.dgrachov.studyplanner.action.auth.RegisterAction">
+            <result name="success" type="tiles">login</result>
+            <result name="error" type="tiles">register</result>
+        </action>
+
+        <action name="logout" class="me.dgrachov.studyplanner.action.auth.LogoutAction">
+            <result name="success" type="tiles">login</result>
+            <result name="error" type="tiles">home</result>
+        </action>
+    </package>
+</struts>

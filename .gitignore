@@ -1,0 +1,31 @@
+# Common
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.kotlin
+.smarttomcat/
+
+# IntelliJ Idea
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# MacOS
+.DS_Store
+
+# Database connection configuration (actual hibernate configuration is in hibernate.cfg.xml)
+hibernate.properties
+
+# Lock changes in the secret properties (file is commited for usage example)
+secrets.properties
