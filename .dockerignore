@@ -1,3 +1,5 @@
 .git/
 target/
 .DS_Store
+hibernate.properties
+secrets.properties

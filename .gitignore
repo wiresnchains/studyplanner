@@ -29,3 +29,5 @@ hibernate.properties
 
 # Lock changes in the secret properties (file is commited for usage example)
 secrets.properties
+.env
+!*.example
