@@ -1,5 +1,6 @@
 .git/
 target/
-.DS_Store
 hibernate.properties
 secrets.properties
+.DS_Store
+README.md
