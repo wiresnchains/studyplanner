@@ -9,23 +9,23 @@
         <link rel="stylesheet" href="<s:url value='/css/base.css' />" />
         <link rel="stylesheet" href="<s:url value='/css/sidebar.css' />" />
         <link rel="stylesheet" href="<s:url value='/css/bootstrap.min.css' />" />
-<link rel="stylesheet" href="<s:url value='/css/timer.css' />" />
+		<link rel="stylesheet" href="<s:url value='/css/timer.css' />" />
         <title><tiles:insertAttribute name="title" /> - Studyplanner</title>
     </head>
     <body>
         <main class="d-flex min-vh-100">
             <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" bg-light style="width: 280px">
-				<!-- TITLE + TIMER BUTTON -->
+
 				<div class="d-flex align-items-center justify-content-between mb-3">
 					<a href="<s:url value='/' />"
 						class="d-flex align-items-center link-body-emphasis text-decoration-none">
 						<span class="fs-4">Studyplanner</span>
 					</a>
-
-					<button id="toggleBtn" class="btn btn-outline-primary">timer</button>
 				</div>
 
 			<hr />
+
+				<button id="toggleBtn" class="btn-primary">timer</button>
 
 			<ul class="nav nav-pills flex-column mb-auto">
 				<li class="nav-item"><a href="<s:url value='/' />"
