@@ -1,0 +1,10 @@
+#hair {
+	position: fixed;
+	width: 120px;
+	height: auto;
+	pointer-events: none;
+	z-index: 9999;
+	image-rendering: crisp-edges;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
