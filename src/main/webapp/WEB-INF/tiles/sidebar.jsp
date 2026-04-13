@@ -25,12 +25,19 @@
 
 			<hr />
 
-				<button id="toggleBtn" class="btn-primary">timer</button>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="<s:url value='/' />" class="nav-link">
+                            Home
+                        </a>
+                    </li>
 
-			<ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item"><a href="<s:url value='/' />"
-					class="nav-link"> Home </a></li>
-			</ul>
+                    <li class="nav-item">
+                        <a href="<s:url value='/subject/' />" class="nav-link">
+                            Subjects
+                        </a>
+                    </li>
+                </ul>
 
 			<hr />
 
