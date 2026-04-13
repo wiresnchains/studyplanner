@@ -1,0 +1,85 @@
+.bg-body-tertiary {
+    border-right: 2px solid var(--win-dark-gray);
+    box-shadow: inset -1px -1px 0 var(--win-black),
+    inset 1px 1px 0 var(--win-white);
+    padding: 10px !important;
+}
+
+.fs-4 {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--win-blue);
+}
+
+.nav-pills .nav-link {
+    color: var(--win-black) !important;
+    border-radius: 0 !important;
+    margin-bottom: 4px;
+    border: 1px solid var(--win-white);
+    border-bottom-color: var(--win-dark-gray);
+    border-right-color: var(--win-dark-gray);
+    background: var(--win-gray);
+    text-align: center;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #d0d0d0;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--win-gray) !important;
+    border: 1px solid var(--win-black);
+    border-top-color: var(--win-dark-gray);
+    border-left-color: var(--win-dark-gray);
+    box-shadow: inset 1px 1px 0 var(--win-black);
+    color: var(--win-black) !important;
+}
+
+.dropdown-menu {
+    background-color: var(--win-gray) !important;
+    border-radius: 0 !important;
+    border: 2px solid;
+    border-color: var(--win-white) var(--win-dark-gray) var(--win-dark-gray) var(--win-white) !important;
+    box-shadow: 1px 1px 0 var(--win-black);
+}
+
+.dropdown-item {
+    color: var(--win-black) !important;
+    padding: 4px 15px !important;
+}
+
+.dropdown-item:hover {
+    background-color: var(--win-blue) !important;
+    color: var(--win-white) !important;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--win-dark-gray);
+    border-bottom: 1px solid var(--win-white);
+    opacity: 1;
+    margin: 1rem 0;
+}
+
+.bg-danger {
+    background-color: #ff0000 !important;
+    border-radius: 0 !important;
+    border: 1px solid var(--win-black);
+    font-weight: bold;
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    box-shadow: inset 1px 1px 0 var(--win-white);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--win-gray);
+    border: 1px solid;
+    border-color: var(--win-white) var(--win-dark-gray) var(--win-dark-gray) var(--win-white);
+}

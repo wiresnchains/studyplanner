@@ -3,46 +3,27 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags"%>
 <html>
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <link rel="stylesheet" href="<s:url value='/css/base.css' />" />
+        <link rel="stylesheet" href="<s:url value='/css/sidebar.css' />" />
+        <link rel="stylesheet" href="<s:url value='/css/bootstrap.min.css' />" />
 <link rel="stylesheet" href="<s:url value='/css/timer.css' />" />
-<link rel="stylesheet" href="<s:url value='/css/bootstrap.min.css' />" />
-<title><tiles:insertAttribute name="title" /> - Studyplanner</title>
-</head>
-<body>
-	<main class="d-flex min-vh-100">
-		<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary"
-			bg-light style="width: 280px">
-			<!-- TITLE + TIMER BUTTON -->
-			<div class="d-flex align-items-center justify-content-between mb-3">
-				<a href="<s:url value='/' />"
-					class="d-flex align-items-center link-body-emphasis text-decoration-none">
-					<span class="fs-4">Studyplanner</span>
-				</a>
+        <title><tiles:insertAttribute name="title" /> - Studyplanner</title>
+    </head>
+    <body>
+        <main class="d-flex min-vh-100">
+            <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" bg-light style="width: 280px">
+				<!-- TITLE + TIMER BUTTON -->
+				<div class="d-flex align-items-center justify-content-between mb-3">
+					<a href="<s:url value='/' />"
+						class="d-flex align-items-center link-body-emphasis text-decoration-none">
+						<span class="fs-4">Studyplanner</span>
+					</a>
 
-				<button id="toggleBtn" class="btn btn-outline-primary">timer</button>
-			</div>
-			<div id="timerBox" class="card shadow">
-				<div class="card-body text-center">
-
-					<div id="mode" class="text-muted small mb-2">Focus</div>
-
-					<div class="circle" id="circle">
-						<svg width="160" height="160">
-        						<circle class="bg" cx="80" cy="80" r="70"></circle>
-        						<circle class="progress" cx="80" cy="80" r="70"></circle>
-    				  		</svg>
-						<div id="time"></div>
-					</div>
-
-					<div class="mt-3 d-flex justify-content-center gap-2">
-						<button class="btn btn-secondary btn-sm" onclick="resetTimer()">Reset</button>
-					</div>
-
+					<button id="toggleBtn" class="btn btn-outline-primary">timer</button>
 				</div>
-			</div>
 
 			<hr />
 
@@ -104,6 +85,26 @@
 			<tiles:insertAttribute name="body" ignore="true" />
 
 			<tags:actionMessages />
+		</div>
+
+		<div id="timerBox" class="card shadow">
+			<div class="card-body text-center">
+
+				<div id="mode" class="text-muted small mb-2">Focus</div>
+
+				<div class="circle" id="circle">
+					<svg width="160" height="160">
+							<circle class="bg" cx="80" cy="80" r="70"></circle>
+							<circle class="progress" cx="80" cy="80" r="70"></circle>
+						</svg>
+					<div id="time"></div>
+				</div>
+
+				<div class="mt-3 d-flex justify-content-center gap-2">
+					<button class="btn btn-secondary btn-sm" onclick="resetTimer()">Reset</button>
+				</div>
+
+			</div>
 		</div>
 	</main>
 

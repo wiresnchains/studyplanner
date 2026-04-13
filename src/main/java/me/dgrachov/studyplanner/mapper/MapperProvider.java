@@ -6,6 +6,9 @@ public class MapperProvider {
     private final AccountMapper accountMapper = new AccountMapper();
     private final AccountMessageMapper accountMessageMapper = new AccountMessageMapper();
     private final SubjectMapper subjectMapper = new SubjectMapper();
+    private final TaskMapper taskMapper = new TaskMapper();
+    private final ChecklistMapper checklistMapper = new ChecklistMapper();
+    private final ChecklistItemMapper checklistItemMapper = new ChecklistItemMapper();
 
     private MapperProvider() {
     }
@@ -28,5 +31,17 @@ public class MapperProvider {
 
     public SubjectMapper getSubjectMapper() {
         return subjectMapper;
+    }
+
+    public TaskMapper getTaskMapper() {
+        return taskMapper;
+    }
+
+    public ChecklistMapper getChecklistMapper() {
+        return checklistMapper;
+    }
+
+    public ChecklistItemMapper getChecklistItemMapper() {
+        return checklistItemMapper;
     }
 }
