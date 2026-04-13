@@ -10,9 +10,14 @@ public class EditSubjectAction extends AccountSessionAwareAction {
     private static final ServiceProvider serviceProvider = ServiceProvider.getInstance();
 
     private SubjectDTO subject;
+    private Boolean showPage;
 
     @Override
     public String execute() {
+        if (showPage) {
+            return "showPage";
+        }
+
         serviceProvider.getSubjectService().editSubject(subject);
 
         return SUCCESS;
@@ -26,5 +31,10 @@ public class EditSubjectAction extends AccountSessionAwareAction {
     @StrutsParameter(depth = 1)
     public void setSubject(SubjectDTO subject) {
         this.subject = subject;
+    }
+
+    @StrutsParameter
+    public void setShowPage(Boolean showPage) {
+        this.showPage = showPage;
     }
 }

@@ -11,11 +11,13 @@
 
         <action name="create" class="me.dgrachov.studyplanner.action.subject.CreateSubjectAction">
             <result name="success" type="redirect">index</result>
+            <result name="showPage" type="tiles">subjectForm</result>
             <result name="error" type="tiles">subjects</result>
         </action>
 
         <action name="edit" class="me.dgrachov.studyplanner.action.subject.EditSubjectAction">
             <result name="success" type="redirect">index</result>
+            <result name="showPage" type="tiles">subjectForm</result>
             <result name="error" type="tiles">subjects</result>
         </action>
 

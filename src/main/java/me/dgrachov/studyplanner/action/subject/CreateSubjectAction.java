@@ -10,9 +10,14 @@ public class CreateSubjectAction extends AccountSessionAwareAction {
     private static final ServiceProvider serviceProvider = ServiceProvider.getInstance();
 
     private CreateSubjectForm form;
+    private Boolean showPage;
 
     @Override
     public String execute() {
+        if (showPage) {
+            return "showPage";
+        }
+
         serviceProvider.getSubjectService().createSubject(form.getName(), account);
 
         return SUCCESS;
@@ -26,5 +31,10 @@ public class CreateSubjectAction extends AccountSessionAwareAction {
     @StrutsParameter(depth = 1)
     public void setForm(CreateSubjectForm form) {
         this.form = form;
+    }
+
+    @StrutsParameter
+    public void setShowPage(Boolean showPage) {
+        this.showPage = showPage;
     }
 }
