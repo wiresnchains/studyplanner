@@ -12,5 +12,9 @@
 
         <mapping class="me.dgrachov.studyplanner.model.Account" />
         <mapping class="me.dgrachov.studyplanner.model.AccountMessage" />
+        <mapping class="me.dgrachov.studyplanner.model.Subject" />
+        <mapping class="me.dgrachov.studyplanner.model.Task" />
+        <mapping class="me.dgrachov.studyplanner.model.Checklist" />
+        <mapping class="me.dgrachov.studyplanner.model.ChecklistItem" />
     </session-factory>
 </hibernate-configuration>
