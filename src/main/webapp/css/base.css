@@ -89,10 +89,6 @@ body {
     line-height: normal;
 }
 
-form {
-    padding: 15px;
-}
-
 .form-floating {
     display: flex !important;
     flex-direction: column !important;
