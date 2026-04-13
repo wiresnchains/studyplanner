@@ -26,9 +26,7 @@
                             Home
                         </a>
                     </li>
-                </ul>
 
-                <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
                         <a href="<s:url value='/subject/' />" class="nav-link">
                             Subjects
