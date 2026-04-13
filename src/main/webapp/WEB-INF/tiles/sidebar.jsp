@@ -27,10 +27,19 @@
 
 			<hr />
 
-			<ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item"><a href="<s:url value='/' />"
-					class="nav-link"> Home </a></li>
-			</ul>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="<s:url value='/' />" class="nav-link">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="<s:url value='/subject/' />" class="nav-link">
+                            Subjects
+                        </a>
+                    </li>
+                </ul>
 
 			<hr />
 
