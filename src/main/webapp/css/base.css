@@ -22,6 +22,7 @@ body {
     border-radius: 0 !important;
     font-weight: normal !important;
     text-transform: none;
+    margin-bottom: 5px;
 }
 
 .btn-primary:active {

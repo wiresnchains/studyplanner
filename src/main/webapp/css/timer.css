@@ -37,6 +37,10 @@
     transition: stroke-dashoffset 1s linear;
   }
 
+  .toggleBtn{
+    margin-bottom: 20px;
+  }
+
   #time {
     position: absolute;
     top: 50%;
