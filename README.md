@@ -24,16 +24,15 @@ hibernate.connection.username = root
 hibernate.connection.password =
 ```
 
-> Configure the credentials
+> Don't forget to configure the credentials
 
 ## Setup for production
 
-Install certbot and run the following commands (skip the permission command if not applicable):
+Set your working directory to this repository and run the following commands:
 
 ```
-chmod +x ./docker/scripts/update-ssl-certs.sh
+chmod +x ./docker/certbot/request-certs.sh
+./docker/certbot/request-certs.sh
 ```
 
-Copy `./docker/.env.example` to `./docker/.env` and configure all params
-
-> Make sure the credentials match your hibernate properties!
+Copy `.env.example` to `.env` and configure all empty values
