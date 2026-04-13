@@ -14,12 +14,4 @@ public abstract class DAOFactory {
     public abstract AccountDAO getAccountDAO();
 
     public abstract AccountMessageDAO getAccountMessageDAO();
-
-    public abstract SubjectDAO getSubjectDAO();
-
-    public abstract TaskDAO getTaskDAO();
-
-    public abstract ChecklistDAO getChecklistDAO();
-
-    public abstract ChecklistItemDAO getChecklistItemDAO();
 }
