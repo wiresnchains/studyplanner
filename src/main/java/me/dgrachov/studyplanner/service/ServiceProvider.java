@@ -5,6 +5,7 @@ public class ServiceProvider {
 
     private final AuthService authService = new AuthService();
     private final MailboxService mailboxService = new MailboxService();
+    private final SubjectService subjectService = new SubjectService();
 
     private ServiceProvider() {
     }
@@ -23,5 +24,9 @@ public class ServiceProvider {
 
     public MailboxService getMailboxService() {
         return mailboxService;
+    }
+
+    public SubjectService getSubjectService() {
+        return subjectService;
     }
 }
