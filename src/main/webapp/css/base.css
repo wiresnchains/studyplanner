@@ -30,6 +30,65 @@ body {
     border-color: var(--win-dark-gray) var(--win-white) var(--win-white) var(--win-dark-gray) !important;
 }
 
+.btn-create {
+    background-color: blue !important;
+    border: 1px solid var(--win-black) !important;
+    box-shadow: inset 1px 1px 0 var(--win-white),
+    1px 1px 0 var(--win-black) !important;
+    color: white !important;
+    border-radius: 0 !important;
+    font-weight: normal !important;
+    text-transform: none;
+    margin-bottom: 5px;
+}
+
+.btn-create:active {
+    box-shadow: inset 1px 1px 0 var(--win-black) !important;
+    border-color: var(--win-dark-gray) var(--win-white) var(--win-white) var(--win-dark-gray) !important;
+}
+
+.btn-secondary {
+    background-color: orange !important;
+    border: 1px solid var(--win-black) !important;
+    box-shadow: inset 1px 1px 0 var(--win-white),
+    1px 1px 0 var(--win-black) !important;
+    color: var(--win-black) !important;
+    border-radius: 0 !important;
+    font-weight: normal !important;
+    text-transform: none;
+    margin-bottom: 5px;
+}
+
+.btn-secondary:active {
+    box-shadow: inset 1px 1px 0 var(--win-black) !important;
+    border-color: var(--win-dark-gray) var(--win-white) var(--win-white) var(--win-dark-gray) !important;
+}
+
+.btn-danger {
+    background-color: red !important;
+    border: 1px solid var(--win-black) !important;
+    box-shadow: inset 1px 1px 0 var(--win-white),
+    1px 1px 0 var(--win-black) !important;
+    color: white !important;
+    border-radius: 0 !important;
+    font-weight: normal !important;
+    text-transform: none;
+    margin-bottom: 5px;
+}
+
+.btn-danger:active {
+    box-shadow: inset 1px 1px 0 var(--win-black) !important;
+    border-color: var(--win-dark-gray) var(--win-white) var(--win-white) var(--win-dark-gray) !important;
+}
+
+.btn-link-fix {
+    display: inline-block;
+    padding: 4px 5px;
+    text-align: center;
+    text-decoration: none;
+    line-height: normal;
+}
+
 form {
     padding: 15px;
 }
@@ -68,11 +127,6 @@ form {
     border-radius: 0 !important;
     border: 2px solid var(--win-dark-gray) !important;
     box-shadow: inset 1px 1px 0 var(--win-black);
-}
-
-a {
-    color: var(--win-blue);
-    font-size: 12px;
 }
 
 label {
