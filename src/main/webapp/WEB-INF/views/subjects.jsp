@@ -1,6 +1,9 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<a href="#" class="btn btn-primary mb-2">Create</a>
+<s:form action="create" namespace="/subject" class="mb-2">
+    <s:hidden name="showPage" value="true" />
+    <s:submit cssClass="btn btn-primary" value="Create" />
+</s:form>
 
 <div class="d-flex flex-wrap gap-2">
     <s:iterator value="subjects">
@@ -9,11 +12,11 @@
                 <s:property value="name" />
             </div>
 
-            <s:form action="show-edit" namespace="/subject">
+            <s:form action="edit" namespace="/subject">
                 <s:hidden name="showPage" value="true" />
-                <s:hidden name="subject.id" value="id" />
-                <s:hidden name="subject.name" value="name" />
-                <s:hidden name="subject.color" value="color" />
+                <s:hidden name="subject.id" value="%{id}" />
+                <s:hidden name="subject.name" value="%{name}" />
+                <s:hidden name="subject.color" value="%{color}" />
 
                 <s:submit cssClass="btn btn-sm btn-secondary" value="Edit" />
             </s:form>

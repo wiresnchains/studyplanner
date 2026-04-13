@@ -30,7 +30,17 @@ public class SubjectService {
     }
 
     public void editSubject(SubjectDTO dto) {
-        var subject = mapperProvider.getSubjectMapper().toBase(dto);
+        var newSubject = mapperProvider.getSubjectMapper().toBase(dto);
+        var subjectOptional = DAOFactory.getFactory().getSubjectDAO().findById(dto.getId());
+
+        if (subjectOptional.isEmpty()) {
+            throw new ServiceException("Subject does not exist");
+        }
+
+        var subject = subjectOptional.get();
+
+        subject.setName(newSubject.getName());
+        subject.setColor(newSubject.getColor());
 
         DAOFactory.getFactory().getSubjectDAO().merge(subject);
     }

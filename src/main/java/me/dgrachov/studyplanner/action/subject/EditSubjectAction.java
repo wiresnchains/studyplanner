@@ -10,7 +10,7 @@ public class EditSubjectAction extends AccountSessionAwareAction {
     private static final ServiceProvider serviceProvider = ServiceProvider.getInstance();
 
     private SubjectDTO subject;
-    private Boolean showPage;
+    private Boolean showPage = false;
 
     @Override
     public String execute() {

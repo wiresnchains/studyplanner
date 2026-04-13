@@ -33,4 +33,14 @@
         <put-attribute name="title" value="Subjects" />
         <put-attribute name="body" value="/WEB-INF/views/subjects.jsp" />
     </definition>
+
+    <definition name="createSubject" extends="sidebar">
+        <put-attribute name="title" value="Create subject" />
+        <put-attribute name="body" value="/WEB-INF/views/createSubject.jsp" />
+    </definition>
+
+    <definition name="editSubject" extends="sidebar">
+        <put-attribute name="title" value="Edit subject" />
+        <put-attribute name="body" value="/WEB-INF/views/editSubject.jsp" />
+    </definition>
 </tiles-definitions>

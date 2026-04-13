@@ -10,7 +10,7 @@ public class CreateSubjectAction extends AccountSessionAwareAction {
     private static final ServiceProvider serviceProvider = ServiceProvider.getInstance();
 
     private CreateSubjectForm form;
-    private Boolean showPage;
+    private Boolean showPage = false;
 
     @Override
     public String execute() {
