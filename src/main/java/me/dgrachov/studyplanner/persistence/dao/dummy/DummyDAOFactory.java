@@ -1,17 +1,10 @@
 package me.dgrachov.studyplanner.persistence.dao.dummy;
 
-import me.dgrachov.studyplanner.persistence.dao.ChecklistDAO;
-import me.dgrachov.studyplanner.persistence.dao.ChecklistItemDAO;
 import me.dgrachov.studyplanner.persistence.dao.DAOFactory;
-import me.dgrachov.studyplanner.persistence.dao.TaskDAO;
 
 public class DummyDAOFactory extends DAOFactory {
     private final DummyAccountDAO accountDAO = new DummyAccountDAO();
     private final DummyAccountMessageDAO accountMessageDAO = new DummyAccountMessageDAO();
-    private final DummySubjectDAO subjectDAO = new DummySubjectDAO();
-    private final DummyTaskDAO taskDAO = new DummyTaskDAO();
-    private final DummyChecklistDAO checklistDAO = new DummyChecklistDAO();
-    private final DummyChecklistItemDAO checklistItemDAO = new DummyChecklistItemDAO();
 
     @Override
     public DummyAccountDAO getAccountDAO() {
@@ -21,25 +14,5 @@ public class DummyDAOFactory extends DAOFactory {
     @Override
     public DummyAccountMessageDAO getAccountMessageDAO() {
         return accountMessageDAO;
-    }
-
-    @Override
-    public DummySubjectDAO getSubjectDAO() {
-        return subjectDAO;
-    }
-
-    @Override
-    public TaskDAO getTaskDAO() {
-        return taskDAO;
-    }
-
-    @Override
-    public ChecklistDAO getChecklistDAO() {
-        return checklistDAO;
-    }
-
-    @Override
-    public ChecklistItemDAO getChecklistItemDAO() {
-        return checklistItemDAO;
     }
 }

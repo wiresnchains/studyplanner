@@ -25,15 +25,6 @@ public class Account {
     @OneToMany(mappedBy = "account")
     private final List<AccountMessage> messages = new ArrayList<>();
 
-    @OneToMany(mappedBy = "account")
-    private final List<Subject> subjects = new ArrayList<>();
-
-    @OneToMany(mappedBy = "account")
-    private final List<Task> tasks = new ArrayList<>();
-
-    @OneToMany(mappedBy = "account")
-    private final List<Checklist> checklists = new ArrayList<>();
-
     public Long getId() {
         return id;
     }
@@ -68,17 +59,5 @@ public class Account {
 
     public List<AccountMessage> getMessages() {
         return messages;
-    }
-
-    public List<Subject> getSubjects() {
-        return subjects;
-    }
-
-    public List<Task> getTasks() {
-        return tasks;
-    }
-
-    public List<Checklist> getChecklists() {
-        return checklists;
     }
 }
