@@ -24,6 +24,7 @@
 				</div>
 
 			<hr />
+				<button id="toggleBtn" class="btn-primary">timer</button>
 
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">

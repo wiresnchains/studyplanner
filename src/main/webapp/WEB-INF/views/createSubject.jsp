@@ -6,7 +6,7 @@
         <s:textfield cssClass="form-control" id="name" name="form.name" />
     </div>
 
-    <s:submit cssClass="btn btn-primary mr-2" value="Create" />
+    <s:submit cssClass="btn-create mr-2" value="Create" />
 
-    <a href="<s:url value='/subject/' />" class="btn btn-secondary">Cancel</a>
+    <a href="<s:url value='/subject/' />" class="btn-danger btn-link-fix">Cancel</a>
 </s:form>

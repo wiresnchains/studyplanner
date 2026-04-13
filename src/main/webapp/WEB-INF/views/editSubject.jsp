@@ -16,7 +16,8 @@
         <option value="ORANGE" <s:if test="subject.color == 'ORANGE'">selected</s:if>>Orange</option>
     </select>
 
-    <s:submit cssClass="btn btn-primary mr-2" value="Save" />
+    <s:submit cssClass="btn-create mr-2" value="Save" />
 
-    <a href="<s:url value='/subject/' />" class="btn btn-secondary">Cancel</a>
+    <a href="<s:url value='/subject/' />" class="btn-danger btn-link-fix">Cancel</a>
+
 </s:form>
