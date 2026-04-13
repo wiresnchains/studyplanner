@@ -1,0 +1,17 @@
+.w-100.m-auto {
+    background-color: var(--win-gray);
+    padding: 2px !important;
+    border: 2px solid;
+    border-color: var(--win-white) var(--win-dark-gray) var(--win-dark-gray) var(--win-white);
+    box-shadow: 1px 1px 0 var(--win-black);
+}
+
+h1.h3 {
+    background: linear-gradient(90deg, var(--win-blue), #1084d0);
+    color: white;
+    padding: 3px 10px;
+    margin: 0 0 15px 0 !important;
+    font-size: 14px !important;
+    font-weight: bold;
+    display: block;
+}

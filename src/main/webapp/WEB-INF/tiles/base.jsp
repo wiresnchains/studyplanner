@@ -5,6 +5,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <link rel="stylesheet" href="<s:url value='/css/base.css' />" />
         <link rel="stylesheet" href="<s:url value='/css/bootstrap.min.css' />" />
         <title><tiles:insertAttribute name="title" /> - Studyplanner</title>
     </head>
