@@ -3,6 +3,7 @@ package me.dgrachov.studyplanner.service;
 import java.util.List;
 
 import me.dgrachov.studyplanner.dto.SubjectDTO;
+import me.dgrachov.studyplanner.exception.ServiceException;
 import me.dgrachov.studyplanner.mapper.MapperProvider;
 import me.dgrachov.studyplanner.model.Account;
 import me.dgrachov.studyplanner.model.Subject;
@@ -35,9 +36,13 @@ public class SubjectService {
     }
 
     public void deleteSubject(Long subjectId) {
-        var subject = new Subject();
+        var subjectOptional = DAOFactory.getFactory().getSubjectDAO().findById(subjectId);
 
-        subject.setId(subjectId);
+        if (subjectOptional.isEmpty()) {
+            throw new ServiceException("Subject does not exist");
+        }
+
+        var subject = subjectOptional.get();
 
         DAOFactory.getFactory().getSubjectDAO().remove(subject);
     }
