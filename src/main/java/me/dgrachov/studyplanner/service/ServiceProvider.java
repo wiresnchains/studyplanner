@@ -6,6 +6,8 @@ public class ServiceProvider {
     private final AuthService authService = new AuthService();
     private final MailboxService mailboxService = new MailboxService();
     private final ChecklistService checklistService = new ChecklistService();
+    private final SubjectService subjectService = new SubjectService();
+
 
     private ServiceProvider() {
     }
@@ -25,8 +27,12 @@ public class ServiceProvider {
     public MailboxService getMailboxService() {
         return mailboxService;
     }
-    
+
     public ChecklistService getChecklistService() {
         return checklistService;
+    }
+
+    public SubjectService getSubjectService() {
+        return subjectService;
     }
 }
