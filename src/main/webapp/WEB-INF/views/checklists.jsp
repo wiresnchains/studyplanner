@@ -1,8 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
-
 <link rel="stylesheet" href="<s:url value='/css/fly.css' />"/>
+<link rel="stylesheet" href="<s:url value='/css/hair.css' />"/>
+<link rel="stylesheet" href="<s:url value='/css/tumbleweed.css' />"/>
 
 <s:form action="create" namespace="/checklist" class="mb-2">
     <s:hidden name="showPage" value="true" />
