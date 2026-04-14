@@ -5,26 +5,31 @@ import java.util.ArrayList;
 import java.util.List;
 import me.dgrachov.studyplanner.dto.TaskDTO;
 import me.dgrachov.studyplanner.model.Priority;
+import me.dgrachov.studyplanner.model.Status;
 import me.dgrachov.studyplanner.model.Subject;
 import me.dgrachov.studyplanner.model.Task;
 
 public class TaskMapper implements Mapper<Task, TaskDTO> {
     @Override
     public Task toBase(TaskDTO dto) {
-        var task = new Task();
+        Task task = new Task();
 
         task.setId(dto.getId());
+        task.setName(dto.getName());
         task.setDescription(dto.getDescription());
         task.setPriority(Priority.valueOf(dto.getPriority()));
+        task.setStatus(Status.valueOf(dto.getStatus()));
 
-        var subjectId = dto.getSubjectId();
+        Long subjectId = dto.getSubjectId();
         if (subjectId != null) {
-            var subject = new Subject();
+            Subject subject = new Subject();
             subject.setId(subjectId);
+            subject.setName(dto.getSubjectName());
             task.setSubject(subject);
+
         }
 
-        var epochDeadline = dto.getEpochDeadline();
+        Long epochDeadline = dto.getEpochDeadline();
         if (epochDeadline != null) {
             task.setDeadline(Instant.ofEpochMilli(epochDeadline));
         }
@@ -34,9 +39,9 @@ public class TaskMapper implements Mapper<Task, TaskDTO> {
 
     @Override
     public List<Task> toBaseList(List<TaskDTO> dtoList) {
-        var tasks = new ArrayList<Task>();
+        ArrayList<Task> tasks = new ArrayList<Task>();
 
-        for (var taskDTO : dtoList) {
+        for (TaskDTO taskDTO : dtoList) {
             tasks.add(toBase(taskDTO));
         }
 
@@ -45,18 +50,21 @@ public class TaskMapper implements Mapper<Task, TaskDTO> {
 
     @Override
     public TaskDTO toDTO(Task base) {
-        var dto = new TaskDTO();
+        TaskDTO dto = new TaskDTO();
 
         dto.setId(base.getId());
+        dto.setName(base.getName());
         dto.setDescription(base.getDescription());
         dto.setPriority(base.getPriority().name());
+        dto.setStatus(base.getStatus().name());
 
-        var subject = base.getSubject();
+        Subject subject = base.getSubject();
         if (subject != null) {
             dto.setSubjectId(subject.getId());
+            dto.setSubjectName(subject.getName());
         }
 
-        var deadline = base.getDeadline();
+        Instant deadline = base.getDeadline();
         if (deadline != null) {
             dto.setEpochDeadline(deadline.toEpochMilli());
         }
@@ -66,9 +74,9 @@ public class TaskMapper implements Mapper<Task, TaskDTO> {
 
     @Override
     public List<TaskDTO> toDTOList(List<Task> baseList) {
-        var taskDTOs = new ArrayList<TaskDTO>();
+        ArrayList<TaskDTO> taskDTOs = new ArrayList<TaskDTO>();
 
-        for (var task : baseList) {
+        for (Task task : baseList) {
             taskDTOs.add(toDTO(task));
         }
 

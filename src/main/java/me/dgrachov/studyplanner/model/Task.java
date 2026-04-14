@@ -21,6 +21,9 @@ public class Task {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "name", nullable = false)
+    private String name;
+
     @Column(name = "description", nullable = false)
     private String description;
 
@@ -36,8 +39,16 @@ public class Task {
     @JoinColumn(name = "subject_id")
     private Subject subject;
 
+    @ManyToOne
+    @JoinColumn(name = "checklist_id")
+    private Checklist checklist;
+
     @Column(name = "deadline")
     private Instant deadline;
+
+    @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.TODO;
 
     public Long getId() {
         return id;
@@ -79,11 +90,19 @@ public class Task {
         this.subject = subject;
     }
 
-    public Instant getDeadline() {
-        return deadline;
-    }
+    public Instant getDeadline() {return deadline;}
 
-    public void setDeadline(Instant deadline) {
-        this.deadline = deadline;
-    }
+    public void setDeadline(Instant deadline) {this.deadline = deadline;}
+
+    public String getName() {return name;}
+
+    public void setName(String name) {this.name = name;}
+
+    public Checklist getChecklist() {return checklist;}
+
+    public void setChecklist(Checklist checklist) {this.checklist = checklist;}
+
+    public Status getStatus() { return status; }
+
+    public void setStatus(Status status) { this.status = status; }
 }

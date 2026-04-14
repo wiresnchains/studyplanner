@@ -38,6 +38,11 @@
                             Subjects
                         </a>
                     </li>
+					<li class="nav-item">
+						<a href="<s:url value='/task/' />" class="nav-link">
+							Tasks
+						</a>
+					</li>
                 </ul>
 
 			<hr />
