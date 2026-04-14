@@ -32,16 +32,16 @@
                             Home
                         </a>
                     </li>
-                    
-                    <li class="nav-item">
-                        <a href="<s:url value='/checklist/' />" class="nav-link">
-                            Checklists
-                        </a>
-                    </li>
 
                     <li class="nav-item">
                         <a href="<s:url value='/subject/' />" class="nav-link">
                             Subjects
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="<s:url value='/checklist/' />" class="nav-link">
+                            Checklists
                         </a>
                     </li>
                 </ul>
