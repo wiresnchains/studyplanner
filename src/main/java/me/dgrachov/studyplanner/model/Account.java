@@ -33,6 +33,33 @@ public class Account {
 
     @OneToMany(mappedBy = "account")
     private final List<Checklist> checklists = new ArrayList<>();
+    
+    public void addChecklist(Checklist checklist) {
+    	if (this.checklists.add(checklist)) {
+    		checklist.setAccount(this);
+    	}
+    }
+    
+    public void removeChecklist(Checklist checklist) {
+    	if (this.checklists.remove(checklist)) {
+    		checklist.setAccount(null);
+    	}
+    }
+    
+    public void changeChecklist(Checklist newChecklist) {
+		Checklist checklistInList = checklists.stream()
+				.filter(c -> c.equals(newChecklist))
+				.findFirst()
+				.orElse(null);
+		if (checklistInList == null)
+			return;
+		checklistInList.setName(newChecklist.getName());
+		checklistInList.getItems().clear();
+		if (newChecklist.getItems() != null) {
+			checklistInList.getItems().addAll(newChecklist.getItems());
+		}
+		checklistInList.setAccount(newChecklist.getAccount());
+	}
 
     public Long getId() {
         return id;

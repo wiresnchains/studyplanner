@@ -24,6 +24,11 @@
                             Home
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<s:url value='/checklist/' />" class="nav-link">
+                            Checklists
+                        </a>
+                    </li>
                 </ul>
 
                 <hr />

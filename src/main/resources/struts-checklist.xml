@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 6.0//EN" "https://struts.apache.org/dtds/struts-6.0.dtd">
+<struts>
+    <package name="checklist" namespace="/checklist" extends="base">
+    
+        <default-interceptor-ref name="protectedStack" />
+        <default-action-ref name="index" />
+        
+        <action name="index" class="me.dgrachov.studyplanner.action.checklist.ShowChecklistAction">
+            <result name="success" type="tiles">checklists</result>
+            <result name="error" type="tiles">checklists</result>
+        </action>
+
+        <action name="create" class="me.dgrachov.studyplanner.action.checklist.CreateChecklistAction">
+            <result name="success" type="tiles">checklists</result>
+            <result name="error" type="tiles">checklists</result>
+        </action>
+    </package>
+</struts>

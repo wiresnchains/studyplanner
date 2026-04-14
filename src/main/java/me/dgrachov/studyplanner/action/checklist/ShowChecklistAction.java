@@ -1,29 +1,30 @@
 package me.dgrachov.studyplanner.action.checklist;
 
+import java.util.List;
 import org.apache.struts2.interceptor.parameter.StrutsParameter;
 
 import me.dgrachov.studyplanner.action.AccountSessionAwareAction;
-import me.dgrachov.studyplanner.dto.ChecklistDTO;
+import me.dgrachov.studyplanner.model.Checklist;
 import me.dgrachov.studyplanner.service.ServiceProvider;
 
-public class CreateChecklistAction extends AccountSessionAwareAction {
+public class ShowChecklistAction extends AccountSessionAwareAction {
 	
-	private ChecklistDTO checklist;
+	private List<Checklist> checklists;
 	
 	private static final ServiceProvider serviceProvider = ServiceProvider.getInstance();
 
 	public String execute() {
-		serviceProvider.getChecklistService().create(account, checklist);
+		checklists = serviceProvider.getChecklistService().show(account);
 		return SUCCESS;
 	}
 	
 	@StrutsParameter(depth = 1)
-    public ChecklistDTO getChecklist() {
-        return checklist;
+    public List<Checklist> getChecklists() {
+        return checklists;
     }
 	
 	@StrutsParameter(depth = 1)
-    public void setChecklist(ChecklistDTO checklist) {
-        this.checklist = checklist;
+    public void setChecklists(List<Checklist> checklists) {
+        this.checklists = checklists;
     }
 }
