@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 6.0//EN" "https://struts.apache.org/dtds/struts-6.0.dtd">
+<struts>
+    <package name="task" namespace="/task" extends="base">
+        <default-interceptor-ref name="protectedStack" />
+        <default-action-ref name="index" />
+
+        <action name="index" class="me.dgrachov.studyplanner.action.task.ShowTaskAction">
+            <result name="success" type="tiles">tasks</result>
+            <result name="error" type="tiles">tasks</result>
+        </action>
+
+        <action name="create" class="me.dgrachov.studyplanner.action.task.CreateTaskAction">
+            <result name="success" type="redirect">index</result>
+            <result name="showPage" type="tiles">createTask</result>
+            <result name="error" type="tiles">createTask</result>
+        </action>
+
+        <action name="edit" class="me.dgrachov.studyplanner.action.task.EditTaskAction">
+            <result name="success" type="redirect">index</result>
+            <result name="showPage" type="tiles">editTask</result>
+            <result name="error" type="tiles">editTask</result>
+        </action>
+
+        <action name="delete" class="me.dgrachov.studyplanner.action.task.DeleteTaskAction">
+            <result name="success" type="redirect">index</result>
+            <result name="error" type="tiles">tasks</result>
+        </action>
+
+        <action name="updateStatus" class="me.dgrachov.studyplanner.action.task.UpdateStatusAction">
+            <result name="success">index</result>
+            <result name="error">index</result>
+        </action>
+    </package>
+</struts>

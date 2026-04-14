@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<s:url value='/css/base.css' />" />
         <link rel="stylesheet" href="<s:url value='/css/bootstrap.min.css' />" />
         <title><tiles:insertAttribute name="title" /> - Studyplanner</title>
+        <meta name="ctx" content="${pageContext.request.contextPath}">
     </head>
     <body class="bg-body-tertiary">
         <tiles:insertAttribute name="body" />

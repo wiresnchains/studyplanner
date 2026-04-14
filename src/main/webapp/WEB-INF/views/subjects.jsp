@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="<s:url value='/css/fly.css' />"/>
 <s:form action="create" namespace="/subject" class="mb-2">
     <s:hidden name="showPage" value="true" />
-    <s:submit cssClass="btn-create" value="Create" />
+    <s:submit cssClass="btn-create" value="+ Create subject" />
 </s:form>
 
 <div class="d-flex flex-wrap gap-2">

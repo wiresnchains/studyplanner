@@ -2,10 +2,14 @@ package me.dgrachov.studyplanner.dto;
 
 public class TaskDTO {
     private Long id;
+    private String name;
     private String description;
     private String priority;
     private Long subjectId;
+    private String subjectName;
+    private Long checklistId;
     private Long epochDeadline;
+    private String status;
 
     public Long getId() {
         return id;
@@ -46,4 +50,20 @@ public class TaskDTO {
     public void setEpochDeadline(Long epochDeadline) {
         this.epochDeadline = epochDeadline;
     }
+
+    public Long getChecklistId() {return checklistId;}
+
+    public void setChecklistId(Long checklistId) {this.checklistId = checklistId;}
+
+    public String getName() {return name;}
+
+    public void setName(String name) {this.name = name;}
+
+    public String getStatus() { return status; }
+
+    public void setStatus(String status) { this.status = status; }
+
+    public String getSubjectName() {return subjectName;}
+
+    public void setSubjectName(String subjectName) {this.subjectName = subjectName;}
 }
