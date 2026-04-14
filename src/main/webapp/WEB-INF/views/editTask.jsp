@@ -42,3 +42,13 @@
   <a href="<s:url value='/task/' />" class="btn-danger btn-link-fix">Cancel</a>
 
 </s:form>
+<canvas id="fly-trail"></canvas>
+<img id="fly" src="<s:url value='/img/fly.gif' />" alt="fly"/>
+<link rel="stylesheet" href="<s:url value='/css/fly.css' />"/>
+<script src="<s:url value='/js/fly.js' />"></script>
+
+<link rel="stylesheet" href="<s:url value='/css/tumbleweed.css' />"/>
+<div id="tumbleweed">
+  <img src="<s:url value='/img/tumbleweed.png' />" alt="tumbleweed" />
+</div>
+<script src="<s:url value='/js/tumbleweed.js' />"></script>

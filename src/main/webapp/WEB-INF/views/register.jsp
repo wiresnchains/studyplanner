@@ -10,7 +10,7 @@
 </head>
 <main class="d-flex align-items-center py-4 min-vh-100">
     <div class="w-100 m-auto" style="max-width: 400px;">
-        <s:form action="register" namespace="/auth" class="mb-3">
+        <s:form action="register" namespace="/auth" class="loginForm mb-3">
             <h1 class="h3 mb-3 fw-normal">Register</h1>
 
             <div class="form-floating">
