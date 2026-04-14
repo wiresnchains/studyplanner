@@ -12,7 +12,19 @@
         </action>
 
         <action name="create" class="me.dgrachov.studyplanner.action.checklist.CreateChecklistAction">
-            <result name="success" type="tiles">checklists</result>
+            <result name="success" type="redirect">index</result>
+            <result name="showPage" type="tiles">createChecklist</result>
+            <result name="error" type="tiles">createChecklist</result>
+        </action>
+
+        <action name="edit" class="me.dgrachov.studyplanner.action.checklist.EditChecklistAction">
+            <result name="success" type="redirect">index</result>
+            <result name="showPage" type="tiles">editChecklist</result>
+            <result name="error" type="tiles">editChecklist</result>
+        </action>
+
+        <action name="delete" class="me.dgrachov.studyplanner.action.checklist.DeleteChecklistAction">
+            <result name="success" type="redirect">index</result>
             <result name="error" type="tiles">checklists</result>
         </action>
     </package>

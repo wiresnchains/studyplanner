@@ -3,12 +3,12 @@ package me.dgrachov.studyplanner.action.checklist;
 import org.apache.struts2.interceptor.parameter.StrutsParameter;
 
 import me.dgrachov.studyplanner.action.AccountSessionAwareAction;
-import me.dgrachov.studyplanner.form.CreateChecklistForm;
+import me.dgrachov.studyplanner.dto.ChecklistDTO;
 import me.dgrachov.studyplanner.service.ServiceProvider;
 
-public class CreateChecklistAction extends AccountSessionAwareAction {
+public class EditChecklistAction extends AccountSessionAwareAction {
 	
-	private CreateChecklistForm form;
+	private ChecklistDTO checklist;
 	
 	private Boolean showPage = false;
 	
@@ -19,19 +19,19 @@ public class CreateChecklistAction extends AccountSessionAwareAction {
             return "showPage";
         }
 		
-		serviceProvider.getChecklistService().createChecklist(account, form.getName());
+		serviceProvider.getChecklistService().editChecklist(checklist);
 		
 		return SUCCESS;
 	}
 	
 	@StrutsParameter(depth = 1)
-    public CreateChecklistForm getForm() {
-        return form;
+    public ChecklistDTO getChecklist() {
+        return checklist;
     }
 	
 	@StrutsParameter(depth = 1)
-    public void setFOrm(CreateChecklistForm form) {
-        this.form = form;
+    public void setChecklist(ChecklistDTO checklist) {
+        this.checklist = checklist;
     }
 	
 	@StrutsParameter

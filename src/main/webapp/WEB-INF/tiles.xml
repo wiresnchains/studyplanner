@@ -33,6 +33,16 @@
         <put-attribute name="title" value="Checklists" />
         <put-attribute name="body" value="/WEB-INF/views/checklists.jsp" />
     </definition>
+    
+    <definition name="createChecklist" extends="sidebar">
+        <put-attribute name="title" value="Create checklist" />
+        <put-attribute name="body" value="/WEB-INF/views/createChecklist.jsp" />
+    </definition>
+
+    <definition name="editChecklist" extends="sidebar">
+        <put-attribute name="title" value="Edit checklist" />
+        <put-attribute name="body" value="/WEB-INF/views/editChecklist.jsp" />
+    </definition>
 
     <definition name="subjects" extends="sidebar">
         <put-attribute name="title" value="Subjects" />
