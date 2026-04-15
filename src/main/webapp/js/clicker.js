@@ -1,6 +1,7 @@
 let count = 0;
 let clickBtn = document.getElementById("clickBtn");
 let clickSpan = document.getElementById("click");
+const base = document.body.dataset.base;
 
 clickBtn.addEventListener("click", () => {
 	if (count >= 50) {
@@ -25,7 +26,7 @@ clickBtn.addEventListener("click", () => {
 function clickImg() {
     for (let i = 0;i < 50;i++) {
         let img = document.createElement("img");
-        img.src = "img/tungtung.webp";
+        img.src = base + "img/tungtung.webp"
         img.classList.add("flying-img");
 
         img.style.left = Math.random() * 100 + "vw";
@@ -44,7 +45,7 @@ function clickImg() {
 function clickPork() {
     for (let i = 0;i < 50;i++) {
         let img = document.createElement("img");
-        img.src = "img/pork.jpg";
+        img.src = base + "img/pork.jpg";
         img.classList.add("flying-img");
 
         img.style.left = Math.random() * 100 + "vw";

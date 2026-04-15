@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="<s:url value='/css/clicker.css' />" />
         <title><tiles:insertAttribute name="title" /> - Studyplanner</title>
     </head>
-    <body>
+	<body data-base="<s:url value='/' />">
         <main class="d-flex min-vh-100">
             <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" bg-light style="width: 280px">
 
