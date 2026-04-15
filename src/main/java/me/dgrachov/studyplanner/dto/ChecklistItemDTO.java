@@ -2,7 +2,7 @@ package me.dgrachov.studyplanner.dto;
 
 public class ChecklistItemDTO {
     private Long id;
-    private String description;
+    private String name;
     private Long checklistId;
 
     public Long getId() {
@@ -13,12 +13,12 @@ public class ChecklistItemDTO {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getChecklistId() {
@@ -28,4 +28,5 @@ public class ChecklistItemDTO {
     public void setChecklistId(Long checklistId) {
         this.checklistId = checklistId;
     }
+    
 }
