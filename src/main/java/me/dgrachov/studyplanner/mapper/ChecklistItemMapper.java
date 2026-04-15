@@ -12,7 +12,7 @@ public class ChecklistItemMapper implements Mapper<ChecklistItem, ChecklistItemD
         var item = new ChecklistItem();
 
         item.setId(dto.getId());
-        item.setDescription(dto.getDescription());
+        item.setName(dto.getName());
 
         var checklistId = dto.getChecklistId();
         if (checklistId != null) {
@@ -40,7 +40,7 @@ public class ChecklistItemMapper implements Mapper<ChecklistItem, ChecklistItemD
         var dto = new ChecklistItemDTO();
 
         dto.setId(base.getId());
-        dto.setDescription(base.getDescription());
+        dto.setName(base.getName());
 
         var checklist = base.getChecklist();
         if (checklist != null) {

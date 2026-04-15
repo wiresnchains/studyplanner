@@ -33,10 +33,9 @@
 			        </td>
 			
 			        <td class="action-btns">
-			            <s:form action="edit" namespace="/checklist">
+			            <s:form action="index" namespace="/checklistItem">
 		                    <s:hidden name="showPage" value="true" />
-		                    <s:hidden name="checklist.id" value="%{id}" />
-		                    <s:hidden name="checklist.name" value="%{name}" />
+		                    <s:hidden name="checklistId" value="%{#checklist.id}" />
 
                     		<s:submit cssClass="btn-secondary" value="Edit" />
                 		</s:form>
