@@ -1,0 +1,14 @@
+#table-top th {
+    background: #a8a8a8;
+    border: 1px solid var(--win-black) !important;
+    box-shadow: inset 1px 1px 0 var(--win-white),
+    1px 1px 0 var(--win-black) !important;
+    color: #0000a0;
+}
+
+.checklist-row td {
+    background: #c0c0c0;
+    border: 1px solid var(--win-black) !important;
+    box-shadow: inset 1px 1px 0 var(--win-white),
+    1px 1px 0 var(--win-black) !important;
+}

@@ -60,6 +60,15 @@ public class Account {
 		}
 		checklistInList.setAccount(newChecklist.getAccount());
 	}
+    
+    public Checklist findChecklistById(Long id) {
+    	for (Checklist v : this.getChecklists()) {
+    		if (v.getId().equals(id)) {
+    			return v;
+    		}
+    	}
+    	return null;
+    }
 
     public Long getId() {
         return id;

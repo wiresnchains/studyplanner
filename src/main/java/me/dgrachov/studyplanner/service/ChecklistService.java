@@ -18,7 +18,14 @@ public class ChecklistService {
 		return account.getChecklists();
 	}
 	
-	public List<ChecklistItem> showItems(Checklist checklist) {
+	public List<ChecklistItem> showItems(Long checklistId) {
+		var checklistOptional = DAOFactory.getFactory().getChecklistDAO().findById(checklistId);
+		
+		if (checklistOptional.isEmpty()) {
+            throw new ServiceException("Checklist does not exist");
+        }
+		
+		var checklist = checklistOptional.get();
 		return checklist.getItems();
 	}
 	
@@ -45,6 +52,18 @@ public class ChecklistService {
         DAOFactory.getFactory().getChecklistDAO().remove(checklist);
     }
 	
+	public void deleteChecklistItem(Long checklistItemId) {
+        var checklistItemOptional = DAOFactory.getFactory().getChecklistItemDAO().findById(checklistItemId);
+
+        if (checklistItemOptional.isEmpty()) {
+            throw new ServiceException("ChecklistItem does not exist");
+        }
+
+        var checklistItem = checklistItemOptional.get();
+
+        DAOFactory.getFactory().getChecklistItemDAO().remove(checklistItem);
+    }
+	
 	public void editChecklist(ChecklistDTO dto) {
 		var newChecklist = mapperProvider.getChecklistMapper().toBase(dto);
         var checklistOptional = DAOFactory.getFactory().getChecklistDAO().findById(dto.getId());
@@ -60,7 +79,10 @@ public class ChecklistService {
         DAOFactory.getFactory().getChecklistDAO().merge(checklist);
 	}
 	
-	public void createChecklistItem(Checklist checklist, String name) {
+	public void createChecklistItem(Long checklistId, String name) {
+		var checklistOptional = DAOFactory.getFactory().getChecklistDAO().findById(checklistId);
+		var checklist = checklistOptional.get();
+		
 		ChecklistItem checklistItem = new ChecklistItem();
 		
 		checklistItem.setName(name);

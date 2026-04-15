@@ -3,6 +3,7 @@ package me.dgrachov.studyplanner.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class Checklist {
     @JoinColumn(name = "account_id", nullable = false)
     private Account account;
 
-    @OneToMany(mappedBy = "checklist")
+    @OneToMany(mappedBy = "checklist", cascade = CascadeType.REMOVE)
     private final List<ChecklistItem> items = new ArrayList<>();
 
     public Long getId() {

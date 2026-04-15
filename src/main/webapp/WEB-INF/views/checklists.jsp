@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="<s:url value='/css/fly.css' />"/>
 <link rel="stylesheet" href="<s:url value='/css/hair.css' />"/>
 <link rel="stylesheet" href="<s:url value='/css/tumbleweed.css' />"/>
+<link rel="stylesheet" href="<s:url value='/css/checklist.css' />"/>
 
 <s:form action="create" namespace="/checklist" class="mb-2">
     <s:hidden name="showPage" value="true" />
@@ -11,7 +12,7 @@
 <div class="table-wrapper">
 	<table class="table">
 		<thead>
-		<tr>
+		<tr class="top-row" id="table-top">
 			<th>Id</th>
 			<th>Naam</th>
 			<th>Actie</th>
@@ -19,7 +20,7 @@
 		</thead>
 		<tbody>
 		<s:iterator value="checklists" var="checklist">
-			    <tr class="checklist-row"
+			    <tr class="checklist-row" 
 			        data-checklist-id="<s:property value='#checklist.id'/>"
 			        data-checklist-name="<s:property value='#checklist.name'/>"
 			        data-checklist-account="<s:property value='#checklist.account'/>">
@@ -33,10 +34,9 @@
 			        </td>
 			
 			        <td class="action-btns">
-			            <s:form action="edit" namespace="/checklist">
+			            <s:form action="index" namespace="/checklistItem">
 		                    <s:hidden name="showPage" value="true" />
-		                    <s:hidden name="checklist.id" value="%{id}" />
-		                    <s:hidden name="checklist.name" value="%{name}" />
+		                    <s:hidden name="checklistId" value="%{#checklist.id}" />
 
                     		<s:submit cssClass="btn-secondary" value="Edit" />
                 		</s:form>

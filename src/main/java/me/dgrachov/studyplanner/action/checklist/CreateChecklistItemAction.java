@@ -11,13 +11,19 @@ public class CreateChecklistItemAction extends AccountSessionAwareAction {
 	
 	private CreateChecklistItemForm form;
 	
-	private Checklist checklist;
+	private Long checklistId;
+	
+	private Boolean showPage = false;
 	
 	private static final ServiceProvider serviceProvider = ServiceProvider.getInstance();
 
 	public String execute() {
 		
-		serviceProvider.getChecklistService().createChecklistItem(checklist, form.getName());
+		serviceProvider.getChecklistService().createChecklistItem(checklistId, form.getName());
+		
+		if (showPage) {
+            return "showPage";
+        }
 		
 		return SUCCESS;
 	}
@@ -33,13 +39,18 @@ public class CreateChecklistItemAction extends AccountSessionAwareAction {
     }
 	
 	@StrutsParameter(depth = 1)
-    public Checklist getChecklist() {
-        return checklist;
+    public Long getChecklistId() {
+        return checklistId;
     }
 	
 	@StrutsParameter(depth = 1)
-    public void setChecklist(Checklist checklist) {
-        this.checklist = checklist;
+    public void setChecklistId(Long checklistId) {
+        this.checklistId = checklistId;
+    }
+	
+	@StrutsParameter
+    public void setShowPage(Boolean showPage) {
+        this.showPage = showPage;
     }
 	
 }
