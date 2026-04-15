@@ -7,50 +7,60 @@
         <h2 class="text-center mb-4">Official Terms & Conditions</h2>
 
         <div class="alert alert-warning mb-3">
-            <strong>WARNING:</strong> Reading this document increases your chance of becoming a 100% certified Sigma.
+            <strong>WARNING:</strong> This is an official document. Violating these terms may result in loss of aura, rizz, and academic success.
         </div>
 
         <section class="mb-4">
-            <h5>1.0 The Fanum Tax Clause</h5>
+            <h5>1.0 Intended Use Policy</h5>
             <p>
-                By clicking "Accept", you agree to pay a mandatory <strong>Fanum Tax</strong> on all your productivity.
-                10% of every completed task will be redirected to the <em>Kai Cenat Glazing Fund</em>.
-                Failure to comply will result in an immediate loss of 50,000 aura points.
+                StudyPlanner is strictly designed for <strong>school-related activities only</strong>.
+                This includes planning homework, assignments, studying, and academic tasks.
+            </p>
+            <p>
+                Any use outside of educational purposes (including personal drama tracking,
+                side quests) is <strong>strictly prohibited</strong>.
+                due to the incedent of 26.
+                Misuse may result in account restrictions or permanent loss of your planning privileges.
             </p>
         </section>
 
         <section class="mb-4">
-            <h5>2.0 Ohio Residency Requirements</h5>
+            <h5>2.0 The Fanum Tax Clause</h5>
             <p>
-                This StudyPlanner is not available for residents of <strong>Ohio</strong>.
-                If you are currently being hunted by a <em>Skibidi Toilet</em> or if you have been
-                caught "slipping" in the trenches, your account will be terminated with zero rizz.
+                By using this platform, you agree that 10% of your completed tasks are spiritually taxed
+                and contributed to the <em>Kai Cenat Glazing Fund</em>. This is non-negotiable.
             </p>
         </section>
 
         <section class="mb-4">
-            <h5>3.0 Mewing & Focus Protocol</h5>
+            <h5>3.0 Focus & Discipline Protocol</h5>
             <p>
-                During study sessions, users must maintain a perfect <strong>Mewing Streak</strong>.
-                If the front-facing camera detects you breaking your form or looking like a "Beta",
-                the app will automatically play <em>"Sticking Out Your Gyatt for the Rizzler"</em> on 100% volume.
+                Users are expected to maintain peak focus while studying. Excessive procrastination,
+                tab-switching, or "just one more YouTube video" behavior may be considered a violation
+                of productivity standards.
             </p>
         </section>
 
         <section class="mb-4">
-            <h5>4.0 The Glazing & Privacy Policy</h5>
+            <h5>4.0 Ohio & Suspicious Activity Clause</h5>
             <p>
-                We do not sell your data to the government. Instead, we send it directly to <strong>Baby Gronk</strong>
-                to see if you are the new <em>Livvy Dunne replacement</em>. We reserve the right to
-                <strong>glaze</strong> your profile if you actually finish a task, though we all know
-                you're just yapping.
+                Any suspicious behavior, including activities associated with chaos, distraction,
+                or unexplained “Ohio-level incidents”, may result in immediate review of your account.
+            </p>
+        </section>
+
+        <section class="mb-4">
+            <h5>5.0 Data & Glazing Policy</h5>
+            <p>
+                We respect your data. However, if you actually complete your tasks, we reserve the right
+                to acknowledge your greatness and apply <strong>maximum glazing</strong>.
             </p>
         </section>
 
         <hr />
 
         <div class="d-flex justify-content-between align-items-center">
-            <p class="mb-0"><em>"Stay Goated or get Cooked." - The CEO of Brainrot</em></p>
+            <p class="mb-0"><em>"Stay focused or get distracted. The choice is yours." - StudyPlanner</em></p>
         </div>
     </div>
 </div>
