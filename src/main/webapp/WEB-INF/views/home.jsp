@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="<s:url value='/css/fly.css' />"/>
 <link rel="stylesheet" href="<s:url value='/css/hair.css' />"/>
 <link rel="stylesheet" href="<s:url value='/css/tumbleweed.css' />"/>
+<link rel="stylesheet" href="<s:url value='/css/TheWatcher.css' />"/>
+
 
 <div class="window">
     <div class="window-body">
@@ -30,6 +32,9 @@
         </p>
     </div>
 </div>
+
+<img id="eye" src="<s:url value='/img/TheWatcher.gif' />" alt="eye" style="position: fixed; display: none; pointer-events: none; z-index: 9999;" />
+<script src="<s:url value='/js/TheWatcher.js' />"></script>
 
 <canvas id="fly-trail"></canvas>
 <img id="fly" src="<s:url value='/img/fly.gif' />" alt="fly"/>
