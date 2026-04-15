@@ -24,8 +24,8 @@
                 <s:if test="status == 'TODO' || status == null">
                     <div class="kanban-card" draggable="true" data-id="<s:property value='id' />" data-status="TODO">
                         <div class="kanban-card-title"><s:property value="name" /></div>
-                        <div class="kanban-card-subject text-muted small">
-                            <i class="bi bi-book"></i>
+                        <div class="kanban-card-subject small" style="--subject-color: <s:property value='subjectColor != null ? subjectColor.toLowerCase() : \"#6c757d\"' />;">
+                            <span class="subject-color-dot"></span>
                             <s:if test="subjectId != null">
                                 <s:property value="subjectName" default="Subject ID: %{subjectId}" />
                             </s:if>
@@ -82,8 +82,8 @@
                 <s:if test="status == 'IN_PROGRESS'">
                     <div class="kanban-card" draggable="true" data-id="<s:property value='id' />" data-status="IN_PROGRESS">
                         <div class="kanban-card-title"><s:property value="name" /></div>
-                        <div class="kanban-card-subject text-muted small">
-                            <i class="bi bi-book"></i>
+                        <div class="kanban-card-subject small" style="--subject-color: <s:property value='subjectColor != null ? subjectColor.toLowerCase() : \"#6c757d\"' />;">
+                            <span class="subject-color-dot"></span>
                             <s:if test="subjectId != null">
                                 <s:property value="subjectName" default="Subject ID: %{subjectId}" />
                             </s:if>
@@ -140,8 +140,8 @@
                 <s:if test="status == 'DONE'">
                     <div class="kanban-card" draggable="true" data-id="<s:property value='id' />" data-status="DONE">
                         <div class="kanban-card-title"><s:property value="name" /></div>
-                        <div class="kanban-card-subject text-muted small">
-                            <i class="bi bi-book"></i>
+                        <div class="kanban-card-subject small" style="--subject-color: <s:property value='subjectColor != null ? subjectColor.toLowerCase() : \"#6c757d\"' />;">
+                            <span class="subject-color-dot"></span>
                             <s:if test="subjectId != null">
                                 <s:property value="subjectName" default="Subject ID: %{subjectId}" />
                             </s:if>

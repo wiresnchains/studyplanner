@@ -6,6 +6,7 @@ import me.dgrachov.studyplanner.dto.SubjectDTO;
 import me.dgrachov.studyplanner.exception.ServiceException;
 import me.dgrachov.studyplanner.mapper.MapperProvider;
 import me.dgrachov.studyplanner.model.Account;
+import me.dgrachov.studyplanner.model.Color;
 import me.dgrachov.studyplanner.model.Subject;
 import me.dgrachov.studyplanner.persistence.dao.DAOFactory;
 
@@ -18,10 +19,11 @@ public class SubjectService {
         return mapperProvider.getSubjectMapper().toDTOList(subjects);
     }
 
-    public void createSubject(String name, Account account) {
+    public void createSubject(String name, String color, Account account) {
         var subject = new Subject();
 
         subject.setName(name);
+        subject.setColor(color == null || color.isBlank() ? Color.BLUE : Color.valueOf(color));
         subject.setAccount(account);
 
         DAOFactory.getFactory().getSubjectDAO().persist(subject);

@@ -36,7 +36,20 @@
 .kanban-card-actions { display: flex; gap: 4px; }
 
 .kanban-card-subject {
+    --subject-color: #6c757d;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-size: 0.85rem;
     margin-bottom: 5px;
-    color: #6c757d;
+    color: var(--subject-color);
+    font-weight: 600;
+}
+
+.subject-color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: currentColor;
+    flex: 0 0 10px;
 }
