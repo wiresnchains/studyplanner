@@ -17,7 +17,7 @@
 
         <div class="alert alert-info">
             <strong>CRITICAL:</strong> It has come to our attention that StudyPlanner is being used for personal purposes
-            (<s:a action="DoNtBElIeveThEm">see the incident of 26</s:a>). This is not acceptable.
+            (<s:a action="DoNtBElIeveThEm">see the incident of 26</s:a>). This is not acceptable. That's why we added the Watcher.
         </div>
 
         <p>
