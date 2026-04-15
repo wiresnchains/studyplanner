@@ -14,7 +14,8 @@
         </p>
 
         <div class="alert alert-info">
-            <strong>CRITICAL:</strong> Absolute zero rizz detected in your task history. If you don't start mewing and locking in right now, you're getting sent straight to the Ohio trenches. No cap, this is your last warning.
+            <strong>CRITICAL:</strong> It has come to our attention that StudyPlanner is being used for personal purposes
+            (<s:a action="DoNtBElIeveThEm">see the incident of 26</s:a>). This is not acceptable.
         </div>
 
         <p>
@@ -24,8 +25,8 @@
         <hr />
 
         <p class="mt-4 text-muted" style="font-size: 0.75rem;">
-            <em>Sent from the Skibidi Basement <br>
-                - The Head Rizzler</em>
+            <em>Sent from StudyPlanner <br>
+                -<a>https://drive.google.com/drive/folders/1PpW1H5Tlt32usPgpWxfDJEYO-1ULMQa3</a> </em>
         </p>
     </div>
 </div>

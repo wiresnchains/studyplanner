@@ -70,6 +70,10 @@
             <result name="success" type="tiles">register</result>
             <result name="error" type="tiles">home</result>
         </action>
+
+        <action name="DoNtBElIeveThEm">
+            <result name="success" type="tiles">DoNtBElIeveThEm</result>
+        </action>
     </package>
 
     <include file="struts-auth.xml" />
