@@ -1,0 +1,8 @@
+#eye {
+    position: fixed;
+    display: none;
+    pointer-events: none;
+    z-index: 9999;
+    width: 140px;
+    height: auto;
+}
