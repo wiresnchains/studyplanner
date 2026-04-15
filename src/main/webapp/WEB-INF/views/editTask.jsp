@@ -32,8 +32,8 @@
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Deadline (Epoch)</label>
-    <s:textfield name="task.epochDeadline" cssClass="form-control" />
+    <label class="form-label">Deadline</label>
+    <s:textfield type="date" name="task.deadline" cssClass="form-control" />
   </div>
 
   <s:hidden name="task.status" />
@@ -42,6 +42,33 @@
   <a href="<s:url value='/task/' />" class="btn-danger btn-link-fix">Cancel</a>
 
 </s:form>
+
+<s:if test="task.checklistItems != null && !task.checklistItems.isEmpty()">
+    <h3 class="mt-4">Checklist</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <s:iterator value="task.checklistItems" var="item">
+                <tr>
+                    <td><s:property value="name" /></td>
+                    <td>
+                        <s:form action="toggle" namespace="/taskChecklistItem">
+                            <s:hidden name="form.id" value="%{id}" />
+                            <s:hidden name="taskId" value="%{task.id}" />
+                            <s:checkbox name="form.completed" value="%{completed}" onchange="this.form.submit()" />
+                        </s:form>
+                    </td>
+                </tr>
+            </s:iterator>
+        </tbody>
+    </table>
+</s:if>
+
 <canvas id="fly-trail"></canvas>
 <img id="fly" src="<s:url value='/img/fly.gif' />" alt="fly"/>
 <link rel="stylesheet" href="<s:url value='/css/fly.css' />"/>

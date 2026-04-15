@@ -6,37 +6,30 @@
 
 <s:form action="create" namespace="/checklist" class="mb-2">
     <s:hidden name="showPage" value="true" />
-    <s:submit cssClass="btn-create" value="Create" />
+    <s:submit cssClass="btn-create" value="+ Create checklist" />
 </s:form>
 
 <div class="table-wrapper">
 	<table class="table">
 		<thead>
 		<tr class="top-row" id="table-top">
-			<th>Id</th>
 			<th>Naam</th>
 			<th>Actie</th>
 		</tr>
 		</thead>
 		<tbody>
 		<s:iterator value="checklists" var="checklist">
-			    <tr class="checklist-row" 
-			        data-checklist-id="<s:property value='#checklist.id'/>"
-			        data-checklist-name="<s:property value='#checklist.name'/>"
-			        data-checklist-account="<s:property value='#checklist.account'/>">
-			
-			        <td class="checklist-id">
-			            <s:property value="#checklist.id"/>
-			        </td>
-			
+			    <tr class="checklist-row"
+			        data-checklist-name="<s:property value='name'/>"
+			        data-checklist-account="<s:property value='account'/>">
 			        <td>
-			            <s:property value="#checklist.name"/>
+			            <s:property value="name"/>
 			        </td>
 			
 			        <td class="action-btns">
 			            <s:form action="index" namespace="/checklistItem">
 		                    <s:hidden name="showPage" value="true" />
-		                    <s:hidden name="checklistId" value="%{#checklist.id}" />
+		                    <s:hidden name="checklistId" value="%{id}" />
 
                     		<s:submit cssClass="btn-secondary" value="Edit" />
                 		</s:form>

@@ -4,7 +4,7 @@
     <constant name="struts.devMode" value="true" />
     <constant name="struts.ui.theme" value="simple" />
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.allowlist.packageNames" value="me.dgrachov.studyplanner.dto" />
+    <constant name="struts.allowlist.packageNames" value="me.dgrachov.studyplanner.dto,java.util" />
 
     <package name="base" abstract="true" extends="struts-default">
         <result-types>
@@ -80,6 +80,7 @@
     <include file="struts-mailbox.xml" />
     <include file="struts-checklist.xml" />
     <include file="struts-checklist-item.xml" />
+    <include file="struts-task-checklist-item.xml" />
     <include file="struts-subject.xml" />
     <include file="struts-task.xml" />
 </struts>

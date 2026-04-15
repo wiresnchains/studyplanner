@@ -1,9 +1,6 @@
 package me.dgrachov.studyplanner.persistence.dao.dummy;
 
-import me.dgrachov.studyplanner.persistence.dao.ChecklistDAO;
-import me.dgrachov.studyplanner.persistence.dao.ChecklistItemDAO;
-import me.dgrachov.studyplanner.persistence.dao.DAOFactory;
-import me.dgrachov.studyplanner.persistence.dao.TaskDAO;
+import me.dgrachov.studyplanner.persistence.dao.*;
 
 public class DummyDAOFactory extends DAOFactory {
     private final DummyAccountDAO accountDAO = new DummyAccountDAO();
@@ -12,6 +9,7 @@ public class DummyDAOFactory extends DAOFactory {
     private final DummyTaskDAO taskDAO = new DummyTaskDAO();
     private final DummyChecklistDAO checklistDAO = new DummyChecklistDAO();
     private final DummyChecklistItemDAO checklistItemDAO = new DummyChecklistItemDAO();
+    private final DummyTaskChecklistDAO taskChecklistDAO = new DummyTaskChecklistDAO();
 
     @Override
     public DummyAccountDAO getAccountDAO() {
@@ -42,4 +40,7 @@ public class DummyDAOFactory extends DAOFactory {
     public ChecklistItemDAO getChecklistItemDAO() {
         return checklistItemDAO;
     }
+
+    @Override
+    public TaskChecklistItemDAO getTaskChecklistItemDAO() {return taskChecklistDAO;}
 }

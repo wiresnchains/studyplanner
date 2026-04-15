@@ -4,6 +4,7 @@ public class ChecklistItemDTO {
     private Long id;
     private String name;
     private Long checklistId;
+    private boolean completed;
 
     public Long getId() {
         return id;
@@ -28,5 +29,12 @@ public class ChecklistItemDTO {
     public void setChecklistId(Long checklistId) {
         this.checklistId = checklistId;
     }
-    
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
 }

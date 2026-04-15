@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderColumn;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,8 +30,9 @@ public class Checklist {
     @JoinColumn(name = "account_id", nullable = false)
     private Account account;
 
-    @OneToMany(mappedBy = "checklist", cascade = CascadeType.REMOVE)
-    private final List<ChecklistItem> items = new ArrayList<>();
+    @OneToMany(mappedBy = "checklist", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderColumn(name = "position")
+    private List<ChecklistItem> items = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -58,5 +60,9 @@ public class Checklist {
 
     public List<ChecklistItem> getItems() {
         return items;
+    }
+
+    public void setItems(List<ChecklistItem> items) {
+        this.items = items;
     }
 }

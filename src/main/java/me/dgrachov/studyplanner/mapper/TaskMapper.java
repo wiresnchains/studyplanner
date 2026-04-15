@@ -1,6 +1,7 @@
 package me.dgrachov.studyplanner.mapper;
 
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import me.dgrachov.studyplanner.dto.TaskDTO;
@@ -10,6 +11,9 @@ import me.dgrachov.studyplanner.model.Subject;
 import me.dgrachov.studyplanner.model.Task;
 
 public class TaskMapper implements Mapper<Task, TaskDTO> {
+
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE; // YYYY-MM-DD
+
     @Override
     public Task toBase(TaskDTO dto) {
         Task task = new Task();
@@ -26,12 +30,10 @@ public class TaskMapper implements Mapper<Task, TaskDTO> {
             subject.setId(subjectId);
             subject.setName(dto.getSubjectName());
             task.setSubject(subject);
-
         }
-
-        Long epochDeadline = dto.getEpochDeadline();
-        if (epochDeadline != null) {
-            task.setDeadline(Instant.ofEpochMilli(epochDeadline));
+        String deadlineString = dto.getDeadline();
+        if (deadlineString != null && !deadlineString.isEmpty()) {
+            task.setDeadline(LocalDate.parse(deadlineString, DATE_FORMATTER));
         }
 
         return task;
@@ -64,9 +66,13 @@ public class TaskMapper implements Mapper<Task, TaskDTO> {
             dto.setSubjectName(subject.getName());
         }
 
-        Instant deadline = base.getDeadline();
+        if (base.getChecklistItems() != null && !base.getChecklistItems().isEmpty()) {
+            dto.setChecklistItems(MapperProvider.getInstance().getTaskChecklistItemMapper().toDTOList(base.getChecklistItems()));
+        }
+
+        LocalDate deadline = base.getDeadline();
         if (deadline != null) {
-            dto.setEpochDeadline(deadline.toEpochMilli());
+            dto.setDeadline(deadline.format(DATE_FORMATTER));
         }
 
         return dto;

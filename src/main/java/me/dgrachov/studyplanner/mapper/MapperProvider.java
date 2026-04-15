@@ -9,6 +9,7 @@ public class MapperProvider {
     private final TaskMapper taskMapper = new TaskMapper();
     private final ChecklistMapper checklistMapper = new ChecklistMapper();
     private final ChecklistItemMapper checklistItemMapper = new ChecklistItemMapper();
+    private final TaskChecklistItemMapper taskChecklistItemMapper = new TaskChecklistItemMapper();
 
     private MapperProvider() {
     }
@@ -43,5 +44,9 @@ public class MapperProvider {
 
     public ChecklistItemMapper getChecklistItemMapper() {
         return checklistItemMapper;
+    }
+
+    public TaskChecklistItemMapper getTaskChecklistItemMapper() {
+        return taskChecklistItemMapper;
     }
 }

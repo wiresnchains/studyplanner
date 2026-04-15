@@ -1,6 +1,9 @@
 package me.dgrachov.studyplanner.service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import me.dgrachov.studyplanner.dto.ChecklistDTO;
 import me.dgrachov.studyplanner.exception.ServiceException;
 import me.dgrachov.studyplanner.mapper.MapperProvider;
@@ -10,36 +13,36 @@ import me.dgrachov.studyplanner.model.ChecklistItem;
 import me.dgrachov.studyplanner.persistence.dao.DAOFactory;
 
 public class ChecklistService {
-	
+
 	MapperProvider mapperProvider = MapperProvider.getInstance();
-	
-	
+
+
 	public List<Checklist> show(Account account) {
 		return account.getChecklists();
 	}
-	
+
 	public List<ChecklistItem> showItems(Long checklistId) {
 		var checklistOptional = DAOFactory.getFactory().getChecklistDAO().findById(checklistId);
-		
+
 		if (checklistOptional.isEmpty()) {
             throw new ServiceException("Checklist does not exist");
         }
-		
+
 		var checklist = checklistOptional.get();
 		return checklist.getItems();
 	}
-	
+
 	public void createChecklist(Account account, String name) {
 		Checklist checklist = new Checklist();
-		
+
 		checklist.setName(name);
 		checklist.setAccount(account);
-		
+
 		DAOFactory.getFactory().getChecklistDAO().persist(checklist);
-		
+
 		account.getChecklists().add(checklist);
 	}
-	
+
 	public void deleteChecklist(Long checklistId) {
         var checklistOptional = DAOFactory.getFactory().getChecklistDAO().findById(checklistId);
 
@@ -51,7 +54,7 @@ public class ChecklistService {
 
         DAOFactory.getFactory().getChecklistDAO().remove(checklist);
     }
-	
+
 	public void deleteChecklistItem(Long checklistItemId) {
         var checklistItemOptional = DAOFactory.getFactory().getChecklistItemDAO().findById(checklistItemId);
 
@@ -63,7 +66,7 @@ public class ChecklistService {
 
         DAOFactory.getFactory().getChecklistItemDAO().remove(checklistItem);
     }
-	
+
 	public void editChecklist(ChecklistDTO dto) {
 		var newChecklist = mapperProvider.getChecklistMapper().toBase(dto);
         var checklistOptional = DAOFactory.getFactory().getChecklistDAO().findById(dto.getId());
@@ -78,19 +81,45 @@ public class ChecklistService {
 
         DAOFactory.getFactory().getChecklistDAO().merge(checklist);
 	}
-	
+
 	public void createChecklistItem(Long checklistId, String name) {
 		var checklistOptional = DAOFactory.getFactory().getChecklistDAO().findById(checklistId);
 		var checklist = checklistOptional.get();
-		
+
 		ChecklistItem checklistItem = new ChecklistItem();
-		
+
 		checklistItem.setName(name);
 		checklistItem.setChecklist(checklist);
+        checklistItem.setPosition(checklist.getItems().size());
 		
 		DAOFactory.getFactory().getChecklistItemDAO().persist(checklistItem);
-		
+
 		checklist.getItems().add(checklistItem);
 	}
 
+    public void updateItemPositions(Long checklistId, List<Long> itemIds) {
+        var checklistOptional = DAOFactory.getFactory().getChecklistDAO().findById(checklistId);
+        if (checklistOptional.isEmpty()) {
+            throw new ServiceException("Checklist not found");
+        }
+        var checklist = checklistOptional.get();
+        var items = checklist.getItems();
+
+        for (int i = 0; i < itemIds.size(); i++) {
+            Long itemId = itemIds.get(i);
+            for (ChecklistItem item : items) {
+                if (item.getId().equals(itemId)) {
+                    item.setPosition(i);
+                    DAOFactory.getFactory().getChecklistItemDAO().merge(item);
+                    break;
+                }
+            }
+        }
+    }
+
+    public List<ChecklistDTO> getChecklistsOfAccount(Account account) {
+        return account.getChecklists().stream()
+                .map(checklist -> mapperProvider.getChecklistMapper().toDTO(checklist))
+                .collect(Collectors.toList());
+    }
 }

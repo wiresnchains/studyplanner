@@ -4,6 +4,12 @@
 
 <meta name="ctx" content="<s:url value='/' />" />
 
+<s:if test="hasActionErrors()">
+    <div class="alert alert-danger" role="alert">
+        <s:actionerror />
+    </div>
+</s:if>
+
 <s:form action="create" namespace="/task" class="mb-3">
     <s:hidden name="showPage" value="true" />
     <s:submit cssClass="btn-create" value="+ Create task" />
@@ -25,6 +31,30 @@
                             </s:if>
                             <s:else>
                                 No subject
+                            </s:else>
+                        </div>
+                        <div class="kanban-card-checklist text-muted small">
+                            <i class="bi bi-check2-square"></i>
+                            <s:if test="checklistItems != null && !checklistItems.isEmpty()">
+                                <s:set var="completedItems" value="0" />
+                                <s:iterator value="checklistItems">
+                                    <s:if test="completed == true">
+                                        <s:set var="completedItems" value="%{#completedItems + 1}" />
+                                    </s:if>
+                                </s:iterator>
+                                <s:property value="#completedItems" />/<s:property value="checklistItems.size()" /> items completed
+                            </s:if>
+                            <s:else>
+                                No checklist
+                            </s:else>
+                        </div>
+                        <div class="kanban-card-deadline text-muted small">
+                            <i class="bi bi-calendar-event"></i>
+                            <s:if test="deadline != null">
+                                <s:property value="deadline" />
+                            </s:if>
+                            <s:else>
+                                No deadline
                             </s:else>
                         </div>
                         <div class="kanban-card-meta"><s:property value="priority" /></div>
@@ -52,6 +82,39 @@
                 <s:if test="status == 'IN_PROGRESS'">
                     <div class="kanban-card" draggable="true" data-id="<s:property value='id' />" data-status="IN_PROGRESS">
                         <div class="kanban-card-title"><s:property value="name" /></div>
+                        <div class="kanban-card-subject text-muted small">
+                            <i class="bi bi-book"></i>
+                            <s:if test="subjectId != null">
+                                <s:property value="subjectName" default="Subject ID: %{subjectId}" />
+                            </s:if>
+                            <s:else>
+                                No subject
+                            </s:else>
+                        </div>
+                        <div class="kanban-card-checklist text-muted small">
+                            <i class="bi bi-check2-square"></i>
+                            <s:if test="checklistItems != null && !checklistItems.isEmpty()">
+                                <s:set var="completedItems" value="0" />
+                                <s:iterator value="checklistItems">
+                                    <s:if test="completed == true">
+                                        <s:set var="completedItems" value="%{#completedItems + 1}" />
+                                    </s:if>
+                                </s:iterator>
+                                <s:property value="#completedItems" />/<s:property value="checklistItems.size()" /> items completed
+                            </s:if>
+                            <s:else>
+                                No checklist
+                            </s:else>
+                        </div>
+                        <div class="kanban-card-deadline text-muted small">
+                            <i class="bi bi-calendar-event"></i>
+                            <s:if test="deadline != null">
+                                <s:property value="deadline" />
+                            </s:if>
+                            <s:else>
+                                No deadline
+                            </s:else>
+                        </div>
                         <div class="kanban-card-meta"><s:property value="priority" /></div>
                         <div class="kanban-card-actions">
                             <s:form action="edit" namespace="/task" method="POST">
@@ -77,6 +140,39 @@
                 <s:if test="status == 'DONE'">
                     <div class="kanban-card" draggable="true" data-id="<s:property value='id' />" data-status="DONE">
                         <div class="kanban-card-title"><s:property value="name" /></div>
+                        <div class="kanban-card-subject text-muted small">
+                            <i class="bi bi-book"></i>
+                            <s:if test="subjectId != null">
+                                <s:property value="subjectName" default="Subject ID: %{subjectId}" />
+                            </s:if>
+                            <s:else>
+                                No subject
+                            </s:else>
+                        </div>
+                        <div class="kanban-card-checklist text-muted small">
+                            <i class="bi bi-check2-square"></i>
+                            <s:if test="checklistItems != null && !checklistItems.isEmpty()">
+                                <s:set var="completedItems" value="0" />
+                                <s:iterator value="checklistItems">
+                                    <s:if test="completed == true">
+                                        <s:set var="completedItems" value="%{#completedItems + 1}" />
+                                    </s:if>
+                                </s:iterator>
+                                <s:property value="#completedItems" />/<s:property value="checklistItems.size()" /> items completed
+                            </s:if>
+                            <s:else>
+                                No checklist
+                            </s:else>
+                        </div>
+                        <div class="kanban-card-deadline text-muted small">
+                            <i class="bi bi-calendar-event"></i>
+                            <s:if test="deadline != null">
+                                <s:property value="deadline" />
+                            </s:if>
+                            <s:else>
+                                No deadline
+                            </s:else>
+                        </div>
                         <div class="kanban-card-meta"><s:property value="priority" /></div>
                         <div class="kanban-card-actions">
                             <s:form action="edit" namespace="/task">
@@ -131,8 +227,15 @@
                 body: 'taskId=' + encodeURIComponent(taskId) +
                     '&status=' + encodeURIComponent(newStatus)
             })
-                .then(res => console.log("STATUS:", res.status))
-                .catch(err => console.error(err));
+                .then(res => {
+                    if (!res.ok) {
+                        window.location.reload();
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    window.location.reload();
+                });
         });
     });
 </script>
