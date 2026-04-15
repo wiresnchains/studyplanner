@@ -18,7 +18,7 @@ public class ChecklistItem {
     private Long id;
 
     @Column(name = "name", nullable = false)
-    private String description;
+    private String name;
 
     @ManyToOne
     @JoinColumn(name = "checklist_id", nullable = false)
@@ -32,12 +32,12 @@ public class ChecklistItem {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Checklist getChecklist() {

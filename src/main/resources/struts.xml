@@ -74,6 +74,8 @@
 
     <include file="struts-auth.xml" />
     <include file="struts-mailbox.xml" />
+    <include file="struts-checklist.xml" />
+    <include file="struts-checklist-item.xml" />
     <include file="struts-subject.xml" />
     <include file="struts-task.xml" />
 </struts>
