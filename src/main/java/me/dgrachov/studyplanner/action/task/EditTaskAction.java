@@ -2,6 +2,7 @@ package me.dgrachov.studyplanner.action.task;
 
 import org.apache.struts2.interceptor.parameter.StrutsParameter;
 import me.dgrachov.studyplanner.action.AccountSessionAwareAction;
+import me.dgrachov.studyplanner.dto.ChecklistDTO;
 import me.dgrachov.studyplanner.dto.SubjectDTO;
 import me.dgrachov.studyplanner.dto.TaskDTO;
 import me.dgrachov.studyplanner.service.ServiceProvider;
@@ -12,11 +13,13 @@ public class EditTaskAction extends AccountSessionAwareAction {
 
     private TaskDTO task = new TaskDTO();
     private List<SubjectDTO> subjects;
+    private List<ChecklistDTO> checklistTemplates;
     private Boolean showPage = false;
 
     @Override
     public String execute() {
         subjects = serviceProvider.getSubjectService().getSubjectsOfAccount(account);
+        checklistTemplates = serviceProvider.getChecklistService().getChecklistsOfAccount(account);
 
         if (Boolean.TRUE.equals(showPage)) {
             if (task != null && task.getId() != null) {
@@ -25,7 +28,7 @@ public class EditTaskAction extends AccountSessionAwareAction {
             return "showPage";
         }
 
-        serviceProvider.getTaskService().edit(task, null, null);
+        serviceProvider.getTaskService().edit(task);
         return SUCCESS;
     }
 
@@ -41,6 +44,10 @@ public class EditTaskAction extends AccountSessionAwareAction {
 
     public List<SubjectDTO> getSubjects() {
         return subjects;
+    }
+
+    public List<ChecklistDTO> getChecklistTemplates() {
+        return checklistTemplates;
     }
 
     @StrutsParameter

@@ -16,5 +16,6 @@
         <mapping class="me.dgrachov.studyplanner.model.Task" />
         <mapping class="me.dgrachov.studyplanner.model.Checklist" />
         <mapping class="me.dgrachov.studyplanner.model.ChecklistItem" />
+        <mapping class="me.dgrachov.studyplanner.model.TaskChecklistItem" />
     </session-factory>
 </hibernate-configuration>

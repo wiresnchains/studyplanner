@@ -8,6 +8,7 @@ public class ServiceProvider {
     private final ChecklistService checklistService = new ChecklistService();
     private final SubjectService subjectService = new SubjectService();
     private final TaskService taskService = new TaskService();
+    private final TaskChecklistItemService taskChecklistItemService = new TaskChecklistItemService();
 
 
     private ServiceProvider() {
@@ -41,5 +42,7 @@ public class ServiceProvider {
         return taskService;
     }
 
-
+    public TaskChecklistItemService getTaskChecklistItemService() {
+        return taskChecklistItemService;
+    }
 }

@@ -30,7 +30,7 @@ public class CreateChecklistAction extends AccountSessionAwareAction {
     }
 	
 	@StrutsParameter(depth = 1)
-    public void setFOrm(CreateChecklistForm form) {
+    public void setForm(CreateChecklistForm form) {
         this.form = form;
     }
 	

@@ -22,4 +22,6 @@ public abstract class DAOFactory {
     public abstract ChecklistDAO getChecklistDAO();
 
     public abstract ChecklistItemDAO getChecklistItemDAO();
+
+    public abstract TaskChecklistItemDAO getTaskChecklistItemDAO();
 }

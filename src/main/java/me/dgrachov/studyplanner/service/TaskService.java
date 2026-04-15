@@ -1,18 +1,18 @@
 package me.dgrachov.studyplanner.service;
-import me.dgrachov.studyplanner.dto.ChecklistDTO;
-import me.dgrachov.studyplanner.dto.SubjectDTO;
 import me.dgrachov.studyplanner.model.*;
 import me.dgrachov.studyplanner.dto.TaskDTO;
 import me.dgrachov.studyplanner.exception.ServiceException;
 import me.dgrachov.studyplanner.mapper.MapperProvider;
 import me.dgrachov.studyplanner.persistence.dao.DAOFactory;
 
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
 public class TaskService {
     private static final MapperProvider mapperProvider = MapperProvider.getInstance();
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE;
 
     public List<TaskDTO> getTasksOfAccount(Account account) {
        List<Task> task  = account.getTasks();
@@ -20,7 +20,7 @@ public class TaskService {
         return mapperProvider.getTaskMapper().toDTOList(task);
     }
 
-    public void create(TaskDTO dto, SubjectDTO subjectDTO, ChecklistDTO checklist, Account account) {
+    public void create(TaskDTO dto, Long checklistTemplateId, Account account) {
         Task task = new Task();
 
         task.setName(dto.getName());
@@ -28,8 +28,8 @@ public class TaskService {
         task.setPriority(Priority.valueOf(dto.getPriority()));
         task.setAccount(account);
 
-        if (dto.getEpochDeadline() != null) {
-            task.setDeadline(Instant.ofEpochSecond(dto.getEpochDeadline()));
+        if (dto.getDeadline() != null && !dto.getDeadline().isEmpty()) {
+            task.setDeadline(LocalDate.parse(dto.getDeadline(), DATE_FORMATTER));
         }
 
         if (dto.getSubjectId() != null) {
@@ -37,11 +37,25 @@ public class TaskService {
                     .ifPresent(task::setSubject);
         }
 
+        if (checklistTemplateId != null) {
+            Optional<Checklist> checklistOptional = DAOFactory.getFactory().getChecklistDAO().findById(checklistTemplateId);
+            if (checklistOptional.isPresent()) {
+                Checklist checklistTemplate = checklistOptional.get();
+                for (ChecklistItem itemTemplate : checklistTemplate.getItems()) {
+                    TaskChecklistItem taskItem = new TaskChecklistItem();
+                    taskItem.setTask(task);
+                    taskItem.setChecklistItemTemplate(itemTemplate);
+                    taskItem.setCompleted(false);
+                    task.getChecklistItems().add(taskItem);
+                }
+            }
+        }
+
         DAOFactory.getFactory().getTaskDAO().persist(task);
         account.getTasks().add(task);
     }
 
-    public void edit(TaskDTO dto, Subject subject, Checklist checklist) {
+    public void edit(TaskDTO dto) {
         Optional<Task> taskOptional = DAOFactory.getFactory().getTaskDAO().findById(dto.getId());
 
         if (taskOptional.isEmpty()) {
@@ -53,13 +67,17 @@ public class TaskService {
         task.setName(dto.getName());
         task.setDescription(dto.getDescription());
 
-        if (dto.getEpochDeadline() != null) {
-            task.setDeadline(Instant.ofEpochSecond(dto.getEpochDeadline()));
+        if (dto.getDeadline() != null && !dto.getDeadline().isEmpty()) {
+            task.setDeadline(LocalDate.parse(dto.getDeadline(), DATE_FORMATTER));
+        } else {
+            task.setDeadline(null);
         }
 
         if (dto.getSubjectId() != null) {
             DAOFactory.getFactory().getSubjectDAO().findById(dto.getSubjectId())
                     .ifPresent(task::setSubject);
+        } else {
+            task.setSubject(null);
         }
 
         task.setPriority(Priority.valueOf(dto.getPriority()));
@@ -87,6 +105,13 @@ public class TaskService {
         }
 
         Task task = taskOptional.get();
+
+        if (status == Status.DONE && !task.getChecklistItems().isEmpty()) {
+            boolean allCompleted = task.getChecklistItems().stream().allMatch(TaskChecklistItem::isCompleted);
+            if (!allCompleted) {
+                throw new ServiceException("Cannot mark task as done. All checklist items must be completed.");
+            }
+        }
 
         task.setStatus(status);
 

@@ -33,8 +33,20 @@
   </div>
 
   <div class="mb-3">
-    <label for="epochDeadline" class="form-label">Deadline (epoch seconds)</label>
-    <s:textfield cssClass="form-control" id="epochDeadline" name="task.epochDeadline" />
+    <label for="checklistTemplateId" class="form-label">Checklist Template</label>
+    <s:select cssClass="form-select"
+              id="checklistTemplateId"
+              name="checklistTemplateId"
+              list="checklistTemplates"
+              listKey="id"
+              listValue="name"
+              headerKey=""
+              headerValue="-- No checklist --" />
+  </div>
+
+  <div class="mb-3">
+    <label for="deadline" class="form-label">Deadline</label>
+    <s:textfield type="date" cssClass="form-control" id="deadline" name="task.deadline" />
   </div>
 
   <s:submit cssClass="btn-create mr-2" value="Create" />

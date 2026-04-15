@@ -3,10 +3,10 @@
 
 <s:form action="create" namespace="/checklistItem">
     <s:hidden name="checklistId"/>
-    
+
     <div class="mb-3">
-	   	<label for="name" class="form-label">Item</label>
-	    <s:textfield cssClass="form-control" id="name" name="form.name" />
+        <label for="name" class="form-label">Item</label>
+        <s:textfield cssClass="form-control" id="name" name="form.name" />
     </div>
 
     <s:submit cssClass="btn-create mr-2" value="Save" />
@@ -16,29 +16,37 @@
 </s:form>
 
 <table class="table">
-	<thead>
-		<tr id="table-top">
-			<th>Item</th>
-			<th>Actie</th>
-		</tr>
-	</thead>
-	<tbody>
-		<s:iterator value="checklistItems" var="checklistItem">
-			<tbody></tbody>
-			<tr class="checklist-row">
-				<td>
-					<s:property value="name"/>
-				</td>
-				<td class="action-btns">
-					<s:form action="delete" namespace="/checklistItem">
-						<s:hidden name="form.checklistItemId" value="%{id}" />
-						<s:hidden name="checklistId" value="%{#attr.checklistId}"/>
-						<s:submit cssClass="btn-danger" value="Delete" />
-					</s:form>
-				</td>
-			</tr>
-		</s:iterator>
-	</tbody>
+    <thead>
+        <tr id="table-top">
+            <th>Item</th>
+            <th>Completed</th>
+            <th>Actie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <s:iterator value="checklistItems" var="checklistItem">
+            <tbody></tbody>
+            <tr class="checklist-row">
+                <td class='<s:if test="completed">completed-item</s:if>'>
+                    <s:property value="name"/>
+                </td>
+                <td>
+                    <s:form action="toggle" namespace="/checklistItem">
+                        <s:hidden name="form.id" value="%{id}" />
+                        <s:hidden name="checklistId" value="%{#attr.checklistId}"/>
+                        <s:checkbox name="form.completed" value="%{completed}" onchange="this.form.submit()" />
+                    </s:form>
+                </td>
+                <td class="action-btns">
+                    <s:form action="delete" namespace="/checklistItem">
+                        <s:hidden name="form.id" value="%{id}" />
+                        <s:hidden name="checklistId" value="%{#attr.checklistId}"/>
+                        <s:submit cssClass="btn-danger" value="Delete" />
+                    </s:form>
+                </td>
+            </tr>
+        </s:iterator>
+    </tbody>
 </table>
 
 <link rel="stylesheet" href="<s:url value='/css/TheWatcher.css' />"/>

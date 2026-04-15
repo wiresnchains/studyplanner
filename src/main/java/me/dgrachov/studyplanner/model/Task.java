@@ -1,7 +1,10 @@
 package me.dgrachov.studyplanner.model;
 
-import java.time.Instant;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -11,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -39,12 +43,11 @@ public class Task {
     @JoinColumn(name = "subject_id")
     private Subject subject;
 
-    @ManyToOne
-    @JoinColumn(name = "checklist_id")
-    private Checklist checklist;
+    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TaskChecklistItem> checklistItems = new ArrayList<>();
 
     @Column(name = "deadline")
-    private Instant deadline;
+    private LocalDate deadline;
 
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -90,17 +93,21 @@ public class Task {
         this.subject = subject;
     }
 
-    public Instant getDeadline() {return deadline;}
+    public LocalDate getDeadline() {return deadline;}
 
-    public void setDeadline(Instant deadline) {this.deadline = deadline;}
+    public void setDeadline(LocalDate deadline) {this.deadline = deadline;}
 
     public String getName() {return name;}
 
     public void setName(String name) {this.name = name;}
 
-    public Checklist getChecklist() {return checklist;}
+    public List<TaskChecklistItem> getChecklistItems() {
+        return checklistItems;
+    }
 
-    public void setChecklist(Checklist checklist) {this.checklist = checklist;}
+    public void setChecklistItems(List<TaskChecklistItem> checklistItems) {
+        this.checklistItems = checklistItems;
+    }
 
     public Status getStatus() { return status; }
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 6.0//EN" "https://struts.apache.org/dtds/struts-6.0.dtd">
+<struts>
+    <package name="taskChecklistItem" namespace="/taskChecklistItem" extends="base">
+
+        <default-interceptor-ref name="protectedStack" />
+
+        <action name="toggle" class="me.dgrachov.studyplanner.action.checklist.ToggleTaskChecklistItemAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">edit</param>
+                <param name="namespace">/task</param>
+                <param name="task.id">${taskId}</param>
+                <param name="showPage">true</param>
+            </result>
+            <result name="error" type="tiles">editTask</result>
+        </action>
+
+    </package>
+</struts>
