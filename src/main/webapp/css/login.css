@@ -15,3 +15,7 @@ h1.h3 {
     font-weight: bold;
     display: block;
 }
+
+.loginForm{
+    padding: 10px !important;
+}

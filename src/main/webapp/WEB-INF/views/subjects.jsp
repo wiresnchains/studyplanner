@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="<s:url value='/css/fly.css' />"/>
 <s:form action="create" namespace="/subject" class="mb-2">
     <s:hidden name="showPage" value="true" />
-    <s:submit cssClass="btn-create" value="Create" />
+    <s:submit cssClass="btn-create" value="+ Create subject" />
 </s:form>
 
 <div class="d-flex flex-wrap gap-2">
@@ -34,3 +34,9 @@
     <img id="fly" src="<s:url value='/img/fly.gif' />" alt="fly"/>
 </div>
 <script src="<s:url value='/js/fly.js' />"></script>
+
+<link rel="stylesheet" href="<s:url value='/css/tumbleweed.css' />"/>
+<div id="tumbleweed">
+    <img src="<s:url value='/img/tumbleweed.png' />" alt="tumbleweed" />
+</div>
+<script src="<s:url value='/js/tumbleweed.js' />"></script>

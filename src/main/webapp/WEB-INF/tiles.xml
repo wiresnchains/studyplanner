@@ -58,4 +58,19 @@
         <put-attribute name="title" value="Edit subject" />
         <put-attribute name="body" value="/WEB-INF/views/editSubject.jsp" />
     </definition>
+
+    <definition name="tasks" extends="sidebar">
+        <put-attribute name="title" value="Tasks" />
+        <put-attribute name="body" value="/WEB-INF/views/tasks.jsp" />
+    </definition>
+
+    <definition name="createTask" extends="sidebar">
+        <put-attribute name="title" value="Create task" />
+        <put-attribute name="body" value="/WEB-INF/views/createTask.jsp" />
+    </definition>
+
+    <definition name="editTask" extends="sidebar">
+        <put-attribute name="title" value="Edit task" />
+        <put-attribute name="body" value="/WEB-INF/views/editTask.jsp" />
+    </definition>
 </tiles-definitions>
