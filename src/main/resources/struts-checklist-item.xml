@@ -30,5 +30,13 @@
             <result name="error" type="tiles">editChecklist</result>
         </action>
 
+        <action name="updatePosition" class="me.dgrachov.studyplanner.action.checklist.UpdateChecklistItemPositionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">index</param>
+                <param name="namespace">/checklistItem</param>
+                <param name="checklistId">${checklistId}</param>
+            </result>
+        </action>
+
     </package>
 </struts>

@@ -24,6 +24,9 @@ public class ChecklistItem {
     @JoinColumn(name = "checklist_id", nullable = false)
     private Checklist checklist;
 
+    @Column(name = "position")
+    private int position;
+
     public Long getId() {
         return id;
     }
@@ -46,5 +49,13 @@ public class ChecklistItem {
 
     public void setChecklist(Checklist checklist) {
         this.checklist = checklist;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

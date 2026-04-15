@@ -90,11 +90,32 @@ public class ChecklistService {
 
 		checklistItem.setName(name);
 		checklistItem.setChecklist(checklist);
+        checklistItem.setPosition(checklist.getItems().size());
 		
 		DAOFactory.getFactory().getChecklistItemDAO().persist(checklistItem);
 
 		checklist.getItems().add(checklistItem);
 	}
+
+    public void updateItemPositions(Long checklistId, List<Long> itemIds) {
+        var checklistOptional = DAOFactory.getFactory().getChecklistDAO().findById(checklistId);
+        if (checklistOptional.isEmpty()) {
+            throw new ServiceException("Checklist not found");
+        }
+        var checklist = checklistOptional.get();
+        var items = checklist.getItems();
+
+        for (int i = 0; i < itemIds.size(); i++) {
+            Long itemId = itemIds.get(i);
+            for (ChecklistItem item : items) {
+                if (item.getId().equals(itemId)) {
+                    item.setPosition(i);
+                    DAOFactory.getFactory().getChecklistItemDAO().merge(item);
+                    break;
+                }
+            }
+        }
+    }
 
     public List<ChecklistDTO> getChecklistsOfAccount(Account account) {
         return account.getChecklists().stream()
