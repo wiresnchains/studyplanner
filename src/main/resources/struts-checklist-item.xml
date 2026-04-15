@@ -21,5 +21,14 @@
             <result name="error" type="tiles">editChecklist</result>
         </action>
 
+        <action name="delete" class="me.dgrachov.studyplanner.action.checklist.DeleteChecklistItemAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">index</param>
+                <param name="namespace">/checklistItem</param>
+                <param name="checklistId">${checklistId}</param>
+            </result>
+            <result name="error" type="tiles">editChecklist</result>
+        </action>
+
     </package>
 </struts>

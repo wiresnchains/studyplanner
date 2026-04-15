@@ -21,11 +21,11 @@
 				<s:property value="name"/>
 			</td>
 			<td class="action-btns">
-			    <s:form action="delete" namespace="/checklistItem">
-                	<s:hidden name="form.checklistItemId" value="%{#checklistItemId}" />
-
-            		<s:submit cssClass="btn-danger" value="Delete" />
-            	</s:form>
+				<s:form action="delete" namespace="/checklistItem">
+					<s:hidden name="form.checklistItemId" value="%{id}" />
+					<s:hidden name="checklistId" value="%{#attr.checklistId}"/>
+					<s:submit cssClass="btn-danger" value="Delete" />
+				</s:form>
 			</td>
 		</tr>
 	</s:iterator>
