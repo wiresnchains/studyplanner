@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="<s:url value='/css/sidebar.css' />" />
         <link rel="stylesheet" href="<s:url value='/css/bootstrap.min.css' />" />
 		<link rel="stylesheet" href="<s:url value='/css/timer.css' />" />
+		<link rel="stylesheet" href="<s:url value='/css/clicker.css' />" />
         <title><tiles:insertAttribute name="title" /> - Studyplanner</title>
     </head>
     <body>
@@ -24,7 +25,8 @@
 				</div>
 
 			<hr />
-				<button id="toggleBtn" class="btn-primary">timer</button>
+				<button id="toggleBtn" class="btn-primary">Timer</button>
+				<button id="clickBtn" class="btn-primary">Click count: <span id="click">0</span></button>
 
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
@@ -127,5 +129,7 @@
 		src="<s:url value='/js/bootstrap.min.js' />"></script>
 	<script type="text/javascript" 
 		src="<s:url value='/js/timer.js' />"></script>
+	<script type="text/javascript" 
+		src="<s:url value='/js/clicker.js' />"></script>
 </body>
 </html>
