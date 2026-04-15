@@ -28,7 +28,7 @@
 				<button id="toggleBtn" class="btn-primary">Timer</button>
 				<button id="clickBtn" class="btn-primary">Click count: <span id="click">0</span></button>
 
-                <ul class="nav nav-pills flex-column mb-auto">
+                <ul class="mt-2 nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
                         <a href="<s:url value='/' />" class="nav-link">
                             Home
