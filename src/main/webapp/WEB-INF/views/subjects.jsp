@@ -8,7 +8,8 @@
 <div class="d-flex flex-wrap gap-2">
     <s:iterator value="subjects">
         <div class="card" style="width: 18rem;">
-            <div class="card-header">
+            <div class="card-header d-flex align-items-center gap-2">
+                <span style="display:inline-block;width:12px;height:12px;border-radius:50%;background-color:<s:property value='color.toLowerCase()' />;"></span>
                 <s:property value="name" />
             </div>
 

@@ -18,7 +18,7 @@ public class CreateSubjectAction extends AccountSessionAwareAction {
             return "showPage";
         }
 
-        serviceProvider.getSubjectService().createSubject(form.getName(), account);
+        serviceProvider.getSubjectService().createSubject(form.getName(), form.getColor(), account);
 
         return SUCCESS;
     }

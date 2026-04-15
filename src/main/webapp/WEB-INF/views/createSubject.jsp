@@ -6,6 +6,17 @@
         <s:textfield cssClass="form-control" id="name" name="form.name" />
     </div>
 
+    <div class="mb-3">
+        <label for="color" class="form-label">Color</label>
+        <select name="form.color" id="color" class="form-select">
+            <option value="RED">Red</option>
+            <option value="GREEN">Green</option>
+            <option value="BLUE" selected>Blue</option>
+            <option value="PURPLE">Purple</option>
+            <option value="ORANGE">Orange</option>
+        </select>
+    </div>
+
     <s:submit cssClass="btn-create mr-2" value="Create" />
 
     <a href="<s:url value='/subject/' />" class="btn-danger btn-link-fix">Cancel</a>

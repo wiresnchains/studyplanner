@@ -9,6 +9,7 @@ public class TaskDTO {
     private String priority;
     private Long subjectId;
     private String subjectName;
+    private String subjectColor;
     private String deadline;
     private String status;
     private List<TaskChecklistItemDTO> checklistItems;
@@ -64,6 +65,14 @@ public class TaskDTO {
     public String getSubjectName() {return subjectName;}
 
     public void setSubjectName(String subjectName) {this.subjectName = subjectName;}
+
+    public String getSubjectColor() {
+        return subjectColor;
+    }
+
+    public void setSubjectColor(String subjectColor) {
+        this.subjectColor = subjectColor;
+    }
 
     public List<TaskChecklistItemDTO> getChecklistItems() {
         return checklistItems;

@@ -64,6 +64,7 @@ public class TaskMapper implements Mapper<Task, TaskDTO> {
         if (subject != null) {
             dto.setSubjectId(subject.getId());
             dto.setSubjectName(subject.getName());
+            dto.setSubjectColor(subject.getColor().name());
         }
 
         if (base.getChecklistItems() != null && !base.getChecklistItems().isEmpty()) {

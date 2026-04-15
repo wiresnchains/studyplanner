@@ -14,7 +14,7 @@ public class SubjectMapper implements Mapper<Subject, SubjectDTO> {
 
         subject.setId(dto.getId());
         subject.setName(dto.getName());
-        subject.setColor(Color.valueOf(dto.getColor()));
+        subject.setColor(dto.getColor() == null || dto.getColor().isBlank() ? Color.BLUE : Color.valueOf(dto.getColor()));
 
         return subject;
     }
@@ -36,7 +36,7 @@ public class SubjectMapper implements Mapper<Subject, SubjectDTO> {
 
         dto.setId(base.getId());
         dto.setName(base.getName());
-        dto.setColor(base.getColor().name());
+        dto.setColor(base.getColor() == null ? Color.BLUE.name() : base.getColor().name());
 
         return dto;
     }
