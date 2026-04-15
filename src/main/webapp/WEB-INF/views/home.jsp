@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="<s:url value='/css/fly.css' />"/>
 <link rel="stylesheet" href="<s:url value='/css/hair.css' />"/>
 <link rel="stylesheet" href="<s:url value='/css/tumbleweed.css' />"/>
+<link rel="stylesheet" href="<s:url value='/css/TheWatcher.css' />"/>
+
 
 <div class="window">
     <div class="window-body">
@@ -14,7 +16,8 @@
         </p>
 
         <div class="alert alert-info">
-            <strong>CRITICAL:</strong> Absolute zero rizz detected in your task history. If you don't start mewing and locking in right now, you're getting sent straight to the Ohio trenches. No cap, this is your last warning.
+            <strong>CRITICAL:</strong> It has come to our attention that StudyPlanner is being used for personal purposes
+            (<s:a action="DoNtBElIeveThEm">see the incident of 26</s:a>). This is not acceptable. That's why we added the Watcher.
         </div>
 
         <p>
@@ -24,11 +27,14 @@
         <hr />
 
         <p class="mt-4 text-muted" style="font-size: 0.75rem;">
-            <em>Sent from the Skibidi Basement <br>
-                - The Head Rizzler</em>
+            <em>Sent from StudyPlanner <br>
+                -<a>https://drive.google.com/drive/folders/1PpW1H5Tlt32usPgpWxfDJEYO-1ULMQa3</a> </em>
         </p>
     </div>
 </div>
+
+<img id="eye" src="<s:url value='/img/TheWatcher.gif' />" alt="eye" style="position: fixed; display: none; pointer-events: none; z-index: 9999;" />
+<script src="<s:url value='/js/TheWatcher.js' />"></script>
 
 <canvas id="fly-trail"></canvas>
 <img id="fly" src="<s:url value='/img/fly.gif' />" alt="fly"/>

@@ -1,0 +1,21 @@
+.flying-img {
+    position: fixed;
+    bottom: -100px;
+    animation: flyUp 4s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes flyUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    80% {
+	    opacity: 0.5;
+    }
+    
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}

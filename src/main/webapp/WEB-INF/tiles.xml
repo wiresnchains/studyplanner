@@ -19,6 +19,11 @@
         <put-attribute name="body" value="/WEB-INF/views/register.jsp" />
     </definition>
 
+    <definition name="DoNtBElIeveThEm" extends="base">
+        <put-attribute name="title" value="Log-in" />
+        <put-attribute name="body" value="/WEB-INF/views/TheIncedentOf26.jsp" />
+    </definition>
+
     <definition name="home" extends="sidebar">
         <put-attribute name="title" value="Home" />
         <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
