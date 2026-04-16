@@ -228,13 +228,13 @@
                     '&status=' + encodeURIComponent(newStatus)
             })
                 .then(res => {
-                    if (!res.ok) {
+                    /*if (!res.ok) {
                         window.location.reload();
-                    }
+                    }*/
                 })
                 .catch(err => {
                     console.error(err);
-                    window.location.reload();
+                    //window.location.reload();
                 });
         });
     });
