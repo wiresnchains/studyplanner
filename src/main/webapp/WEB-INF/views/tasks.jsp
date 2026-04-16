@@ -1,9 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <link rel="stylesheet" href="<s:url value='/css/fly.css' />"/>
 <link rel="stylesheet" href="<s:url value='/css/task.css' />"/>
-
-<meta name="ctx" content="<s:url value='/' />" />
-
 <s:if test="hasActionErrors()">
     <div class="alert alert-danger" role="alert">
         <s:actionerror />
@@ -219,9 +216,7 @@
             col.appendChild(dragged);
             dragged.dataset.status = newStatus;
 
-            const ctx = document.querySelector('meta[name="ctx"]')?.content || '';
-
-            fetch(ctx + '/task/updateStatus.action', {
+            fetch('<s:url action="updateStatus" namespace="/task" />', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: 'taskId=' + encodeURIComponent(taskId) +

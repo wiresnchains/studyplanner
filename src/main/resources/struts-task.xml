@@ -28,8 +28,8 @@
         </action>
 
         <action name="updateStatus" class="me.dgrachov.studyplanner.action.task.UpdateStatusAction">
-            <result name="success">index</result>
-            <result name="error">index</result>
+            <result name="success" type="redirect">index</result>
+            <result name="error" type="tiles">tasks</result>
         </action>
     </package>
 </struts>
