@@ -18,10 +18,9 @@
         into widespread misuse of the platform for purposes far beyond its intended design.
       </p>
       <p>
-        Users began creating entries unrelated to school, documenting personal conflicts,
-        strange logs, and what some described as side activities. Over time, these entries
-        became increasingly erratic, eventually affecting system stability and other users
-        ability to properly plan their academic work.
+        Users began creating entries unrelated to school, documenting personal conflicts, strange logs,
+        and what some described as side activities. Over time, these entries became increasingly erratic,
+        leading to the disappearance of our best developer.
       </p>
     </section>
 
