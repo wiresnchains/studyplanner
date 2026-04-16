@@ -19,6 +19,7 @@ services:
     volumes:
       - letsencrypt_data:/etc/letsencrypt:ro
       - ./.docker/tomcat/conf/server.xml:/usr/local/tomcat/conf/server.xml:ro
+      - ./.docker/tomcat/conf/rewrite.conf:/usr/local/tomcat/conf/rewrite.conf:ro
     depends_on:
       mysql:
         condition: service_healthy
